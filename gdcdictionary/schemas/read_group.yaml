@@ -4,7 +4,7 @@ id: "read_group"
 title: Read Group
 type: object
 description: "Sequencing reads from one lane of an NGS experiment."
-namespace: https://www.bloodpac.org
+namespace: http://gdc.nci.nih.gov
 category: biospecimen
 validators: null
 project: '*'
@@ -21,9 +21,9 @@ systemProperties:
   - state
 
 links:
-  - name: analytes
+  - name: aliquots
     label: derived_from
-    target_type: analyte
+    target_type: aliquot
     multiplicity: many_to_one
     required: true
     backref: read_groups
@@ -31,32 +31,76 @@ links:
 required:
   - type
   - submitter_id
+  - aliquots
+  - experiment_name
+  - sequencing_center
   - platform
-  - instrument_model
   - library_strategy
+  - library_name
   - is_paired_end
-  - read_length_lower
-  - read_length_upper
-  - analytes 
+  - read_length
+  - read_group_name
 
 uniqueKeys:
   - [ id ]
   - [ project_id, submitter_id ]
 
 properties:
-  $ref: "_definitions.yaml#/ubiquitous_properties"
+  id:
+    $ref: "_definitions.yaml#/UUID"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  submitter_id:
+    type: string
+  state:
+    $ref: "_definitions.yaml#/state"
+  type:
+    enum: [ "read_group" ]
 
+  adapter_name:
+    term:
+      $ref: "_terms.yaml#/adapter_name"
+    type: string
   adapter_sequence:
     term:
       $ref: "_terms.yaml#/adapter_sequence"
     type: string
-  barcoding_applied:
-    description: "True/False: was barcoding applied?"
-    type: boolean
+  base_caller_name:
+    term:
+      $ref: "_terms.yaml#/base_caller_name"
+    type: string
+  base_caller_version:
+    term:
+      $ref: "_terms.yaml#/base_caller_version"
+    type: string
+  experiment_name:
+    term:
+      $ref: "_terms.yaml#/experiment_name"
+    type: string
   flow_cell_barcode:
     term:
       $ref: "_terms.yaml#/flow_cell_barcode"
     type: string
+  fragment_maximum_length:
+    term:
+      $ref: "_terms.yaml#/fragment_maximum_length"
+    type: integer
+  fragment_mean_length:
+    term:
+      $ref: "_terms.yaml#/fragment_mean_length"
+    type: number 
+  fragment_minimum_length:
+    term: 
+      $ref: "_terms.yaml#/fragment_minimum_length"
+    type: integer
+  fragment_standard_deviation_length:
+    term:
+      $ref: "_terms.yaml#/fragment_standard_deviation_length"
+    type: number 
+  includes_spike_ins:
+    term:
+      $ref: "_terms.yaml#/includes_spike_ins"
+    type: boolean
   instrument_model:
     terms:
       $ref: "_terms.yaml#/instrument_model"
@@ -78,12 +122,15 @@ properties:
       - Ion Torrent PGM
       - Ion Torrent Proton
       - PacBio RS
-      - Ion S5 XL System, Ion 530 Chip
       - Other
   is_paired_end:
     term:
       $ref: "_terms.yaml#/is_paired_end"
     type: boolean
+  lane_number:
+    term:
+      $ref: "_terms.yaml#/lane_number"
+    type: integer
   library_name:
     term:
       $ref: "_terms.yaml#/library_name"
@@ -108,11 +155,17 @@ properties:
     term:
       $ref: "_terms.yaml#/library_selection"
     enum:
+      - Hybrid_Selection
       - Hybrid Selection
       - PCR
+      - Affinity_Enrichment
       - Affinity Enrichment
+      - Poly-T_Enrichment
       - Poly-T Enrichment
-      - RNA Depletion
+      - Random
+      - RNA_Depletion
+      - rRNA Depletion
+      - miRNA Size Fractionation
       - Targeted Sequencing
       - Other
   library_strand:
@@ -120,8 +173,8 @@ properties:
       $ref: "_terms.yaml#/library_strand"
     enum:
       - Unstranded
-      - First Stranded
-      - Second Stranded
+      - First_Stranded
+      - Second_Stranded
   library_strategy:
     term:
       $ref: "_terms.yaml#/library_strategy"
@@ -134,7 +187,12 @@ properties:
       - Bisulfite-Seq
       - Validation
       - Amplicon
+      - Targeted Sequencing 
       - Other
+  multiplex_barcode:
+    term:
+      $ref: "_terms.yaml#/multiplex_barcode"
+    type: string
   platform:
     term:
       $ref: "_terms.yaml#/platform"
@@ -146,14 +204,10 @@ properties:
       - Complete Genomics
       - PacBio
       - Other
-  read_group_name:
-    description: "The name given to this read group. Should match what is provided in the headers of associated files."
+  read_group_name:  # it may be good to assign UUID to read group
+    description: "Read Group Name"
     type: string
-  read_length_lower:
-    description: "The lower limit for the length of reads used in the sequencing experiment."
-    type: integer
-  read_length_upper:
-    description: "The upper limit for the length of reads used in the sequencing experiment."
+  read_length:
     type: integer
   RIN:
     term:
@@ -163,26 +217,49 @@ properties:
     term:
       $ref: "_terms.yaml#/sequencing_center"
     type: string
-  target_capture_kit_name:
+  sequencing_date:
+    $ref: "_definitions.yaml#/datetime"
+  size_selection_range:
     term:
-      $ref: "_terms.yaml#/target_capture_kit_name"
+      $ref: "_terms.yaml#/size_selection_range"
     type: string
-  target_capture_kit_vendor:
+  spike_ins_concentration:
     term:
-      $ref: "_terms.yaml#/target_capture_kit_vendor"
+      $ref: "_terms.yaml#/spike_ins_concentration"
+    type: string
+  spike_ins_fasta:
+    term:
+      $ref: "_terms.yaml#/spike_ins_fasta"
     type: string
   target_capture_kit_catalog_number:
     term:
       $ref: "_terms.yaml#/target_capture_kit_catalog_number"
     type: string
-  target_capture_kit_version:
+  target_capture_kit_name:  # conditionally required for WXS etc
     term:
-      $ref: "_terms.yaml#/target_capture_kit_version"
+      $ref: "_terms.yaml#/target_capture_kit_name"
     type: string
   target_capture_kit_target_region:
     term:
       $ref: "_terms.yaml#/target_capture_kit_target_region"
     type: string
+  target_capture_kit_vendor:
+    term:
+      $ref: "_terms.yaml#/target_capture_kit_vendor"
+    type: string
+  target_capture_kit_version:
+    term:
+      $ref: "_terms.yaml#/target_capture_kit_version"
+    type: string
+  to_trim_adapter_sequence:
+    term:
+      $ref: "_terms.yaml#/to_trim_adapter_sequence"
+    type: boolean
 
-  analytes:
+  aliquots:
     $ref: "_definitions.yaml#/to_one"
+
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"

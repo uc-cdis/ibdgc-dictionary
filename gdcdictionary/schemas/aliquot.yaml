@@ -4,7 +4,6 @@ id: "aliquot"
 title: Aliquot
 type: object
 category: biospecimen
-namespace: https://www.bloodpac.org
 program: '*'
 project: '*'
 description: >
@@ -23,94 +22,86 @@ systemProperties:
 
 required:
   - submitter_id
-  - aliquot_container
-  - clinical_or_contrived
-  - hours_to_freezer_lower
-  - hours_to_freezer_upper
-  - preservation_method
-  - storage_temperature
-  - samples
 
 uniqueKeys:
   - [id]
   - [project_id, submitter_id]
 
 links:
-  - name: samples
-    backref: aliquots
-    label: derived_from
-    multiplicity: many_to_many
-    target_type: sample
+  - exclusive: false
     required: true
+    subgroup:
+      - name: analytes
+        backref: aliquots
+        label: derived_from
+        multiplicity: many_to_one
+        target_type: analyte
+        required: false
+      - name: samples
+        backref: aliquots
+        label: derived_from
+        multiplicity: many_to_many
+        target_type: sample
+        required: false
+  - name: centers
+    label: shipped_to
+    backref: aliquots
+    multiplicity: many_to_one
+    target_type: center
+    required: false
+
 
 constraints: null
 
+# Aliquot properties
 properties:
-  $ref: "_definitions.yaml#/ubiquitous_properties"
-
-  aliquot_container:
-    description: "The device in which the final aliquot is held. Slides or vials."
-    enum:
-      - Serum Card
-      - Slide
-      - Vial
+  type:
+    type: string
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+  state:
+    $ref: "_definitions.yaml#/state"
+  submitter_id:
+    type:
+      - string
+      - "null"
+    description: >
+      The legacy barcode used before prior to the use
+      UUIDs. For TCGA this is bcraliquotbarcode.
   aliquot_quantity:
-    description: "The quantity in micrograms (ug) of the aliquot derived from the sample and used for experimentation."
+    term:
+      $ref: "_terms.yaml#/aliquot_quantity"
     type: number
   aliquot_volume:
-    description: "The volume in microliters (uL) of the aliquot derived from the sample and used for experimentation."
-    type: number
-  clinical_or_contrived:
-    description: "Is the aliquot clinical or contrived?"
-    enum:
-      - Clinical
-      - Contrived
-  contrivance_method:
-    description: >
-      The name or general description of the contrivance(s) added to the biological aliquot.
-      Alternatively, if you have provided a contrivance protocol, enter its file_name here.
-    type: string
-  hours_to_freezer_lower:
-    description: >
-      The lower limit on the amount of time, in hours, that it took between the sample being
-      fractionated and the aliquot being frozen or otherwise preserved.
-    type:
-      - number
-      - string
-    oneOf:
-      - enum:
-          - Not Applicable
-          - Unknown
-      - type: number
-  hours_to_freezer_upper:
-    description: >
-      The upper limit on the amount of time, in hours, that it took between the sample being fractionated
-      and the aliquot being frozen or otherwise preserved.
-    type:
-      - number
-      - string
-    oneOf:
-      - enum:
-          - Not Applicable
-          - Unknown
-      - type: number
-  methanol_added:
-    description: "In the preparation of a slide, was methanol added as a fixative? True/False."
-    type: boolean
-  preservation_method:
     term:
-      $ref: "_terms.yaml#/preservation_method"
-    enum:
-      - Cryopreserved
-      - FFPE
-      - Fresh
-      - OCT
-      - Snap Frozen
-      - Frozen
-      - Unknown
-  storage_temperature:
-    description: "The temperature, in centrigrade, at which the aliquot was preserved and/or stored."
+      $ref: "_terms.yaml#/aliquot_volume"
     type: number
-
+  amount:
+    term:
+      $ref: "_terms.yaml#/amount"
+    type: number
+  analytes:
+    $ref: "_definitions.yaml#/to_one"
+  analyte_type:
+    $ref: "analyte.yaml#/properties/analyte_type"
+  analyte_type_id:
+    $ref: "analyte.yaml#/properties/analyte_type_id"
+  concentration:
+    term:
+      $ref: "_terms.yaml#/concentration"
+    type: number
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  source_center:
+    term:
+      $ref: "_terms.yaml#/source_center"
+    type: string
   samples:
     $ref: "_definitions.yaml#/to_one"
+  centers:
+    $ref: "_definitions.yaml#/to_one"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
