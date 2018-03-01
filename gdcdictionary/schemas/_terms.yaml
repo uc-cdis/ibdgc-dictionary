@@ -1,6 +1,6 @@
 id: _terms
 
-28s_16s_ribosomal_rna_ratio:
+ribosomal_rna_28s_16s_ratio:
   description: >
     The 28S/18S ribosomal RNA band ratio used to assess the quality of total RNA.
   termDef:
