@@ -17,8 +17,8 @@ import os
 import argparse
 import json
 import unittest
-from python import GDCDictionary
-
+# from python import GDCDictionary
+from gdcdictionary import GDCDictionary
 
 
 def load_yaml_schema(path):
