@@ -83,6 +83,7 @@ properties:
       - Illumina OMNI 5M SNP Array
       - Illumina OMNI 2.5M SNP Array
       - Affymetrix Genome-Wide Human SNP Array 6.0
+      - Infinium Global Screening Array-24 v1.0
 
   aliquots:
     $ref: "_definitions.yaml#/to_one"

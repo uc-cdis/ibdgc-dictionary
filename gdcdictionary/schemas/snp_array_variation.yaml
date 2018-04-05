@@ -79,6 +79,7 @@ properties:
       - Illumina Infinium HumanExome BeadChip
       - Illumina OMNI 5M SNP Array
       - Illumina OMNI 2.5M SNP Array
+      - Infinium Global Screening Array-24 v1.0
 
   snp_array_workflows:
     $ref: "_definitions.yaml#/to_one"
