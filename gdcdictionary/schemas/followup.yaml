@@ -44,38 +44,38 @@ uniqueKeys:
 
 properties:
   $ref: "_definitions.yaml#/ubiquitous_properties"
-  
+
   days_to_last_review:
     description: "Number of days between the date used for index and the date the patient was last evaluated clinically."
     type: integer
   dis_loc_extensive:
     description: "Indicates whether individual with ulcerative colitis has extensive disease."
     enum:
-      - Yes
-      - No
-      - Unknown
-      - Not applicable
+      - "Yes"
+      - "No"
+      - "Unknown"
+      - "Not applicable"
   dis_loc_left:
     description: "Indicates whether individual with ulcerative colitis has left-sided disease."
     enum:
-      - Yes
-      - No
-      - Unknown
-      - Not applicable
+      - "Yes"
+      - "No"
+      - "Unknown"
+      - "Not applicable"
   dis_loc_proctitis:
     description: "Indicates whether individual with ulcerative colitis has proctitis."
     enum:
-      - Yes
-      - No
-      - Unknown
-      - Not applicable
+      - "Yes"
+      - "No"
+      - "Unknown"
+      - "Not applicable"
   perianal:
     description: "Indicates whether individual with Crohn's disease has perianal involvement."
     enum:
-      - Yes
-      - No
-      - Unknown
-      - Not applicable
+      - "Yes"
+      - "No"
+      - "Unknown"
+      - "Not applicable"
 
   cases:
     $ref: "_definitions.yaml#/to_one"

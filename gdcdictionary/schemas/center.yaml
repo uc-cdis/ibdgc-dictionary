@@ -32,8 +32,7 @@ uniqueKeys:
 
 # center properties
 properties:
-  type:
-    type: string
+  $ref: "_definitions.yaml#/ubiquitous_properties"
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
