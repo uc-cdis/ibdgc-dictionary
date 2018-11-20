@@ -55,8 +55,17 @@ properties:
       - Indeterminate colitis
       - Not applicable
   diag_age:
-    description: "Age (in years) at first diagnosis of IBD"
+    description: >
+      Age (in years) at first diagnosis of IBD. If the age is greater than 89 years, see 'diag_age_gt89'.
     type: integer
+    maximum: 89
+    minimum: 0
+  diag_age_gt89:
+    description: >
+      Indicate whether 'Age (in years) at first diagnosis of IBD' is greater than 89 years.
+    enum:
+      - "Yes"
+      - "No"
 
   cases:
     $ref: "_definitions.yaml#/to_one"
