@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "submitted_snp_array"
 title: Submitted SNP array
 type: object
-namespace: https://www.gtexportal.org/
+namespace: https://ibdgc.datacommons.io/
 category: data_file
 program: '*'
 project: '*'
@@ -22,21 +22,28 @@ systemProperties:
   - error_type
 
 links:
-  - name: aliquots
-    backref: submitted_snp_array_files
-    label: data_from
-    target_type: aliquot
-    multiplicity: one_to_one
+  - exclusive: false
     required: true
+    subgroup:
+      - name: core_metadata_collections
+        backref: submitted_snp_array_files
+        label: data_from
+        target_type: core_metadata_collection
+        multiplicity: many_to_one
+        required: false
+      - name: aliquots
+        backref: submitted_snp_array_files
+        label: data_from
+        target_type: aliquot
+        multiplicity: one_to_one
+        required: false
 
 required:
   - submitter_id
-  - type
   - file_name
   - data_category
   - data_type
   - data_format
-  - aliquots
 
 uniqueKeys:
   - [ id ]
@@ -45,20 +52,11 @@ uniqueKeys:
 properties:
   $ref: "_definitions.yaml#/data_file_properties"
 
-  type:
-    enum: [ "submitted_snp_array" ]
-
   data_category:
     term:
       $ref: "_terms.yaml#/data_category"
     enum:
       - SNP Array Data
-
-  data_type:
-    term:
-      $ref: "_terms.yaml#/data_type"
-    enum:
-      - SNP Raw Intensity
 
   data_format:
     term:
@@ -68,6 +66,12 @@ properties:
       - GTC
       - GCT
       - CEL
+
+  data_type:
+    term:
+      $ref: "_terms.yaml#/data_type"
+    enum:
+      - SNP Raw Intensity
 
   experimental_strategy:
     term:
@@ -87,3 +91,5 @@ properties:
 
   aliquots:
     $ref: "_definitions.yaml#/to_one"
+  core_metadata_collections:
+    $ref: "_definitions.yaml#/to_many"

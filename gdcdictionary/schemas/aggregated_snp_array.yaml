@@ -3,7 +3,7 @@ $schema: "http://json-schema.org/draft-04/schema#"
 id: "aggregated_snp_array"
 title: Aggregated SNP array
 type: object
-namespace: https://www.gtexportal.org/
+namespace: https://ibdgc.datacommons.io/
 category: data_file
 program: '*'
 project: '*'
@@ -22,30 +22,34 @@ systemProperties:
   - error_type
 
 links:
-  - exclusive: true
+  - exclusive: false
     required: true
     subgroup:
-       - name: submitted_snp_array_files
-         backref: aggregated_snp_array_files
-         label: data_from
-         target_type: submitted_snp_array
-         multiplicity: many_to_many
-         required: false
-       - name: aliquots
-         backref: aggregated_snp_array_files
-         label: data_from
-         target_type: aliquot
-         multiplicity: many_to_many
-         required: false
+      - name: core_metadata_collections
+        backref: aggregated_snp_array_files
+        label: data_from
+        target_type: core_metadata_collection
+        multiplicity: many_to_one
+        required: false
+      - name: submitted_snp_array_files
+        backref: aggregated_snp_array_files
+        label: data_from
+        target_type: submitted_snp_array
+        multiplicity: many_to_many
+        required: false
+      - name: aliquots
+        backref: aggregated_snp_array_files
+        label: data_from
+        target_type: aliquot
+        multiplicity: many_to_many
+        required: false
 
 required:
   - submitter_id
-  - type
   - file_name
   - data_category
   - data_type
   - data_format
-  - submitted_snp_array_files
 
 uniqueKeys:
   - [ id ]
@@ -54,21 +58,11 @@ uniqueKeys:
 properties:
   $ref: "_definitions.yaml#/data_file_properties"
 
-  type:
-    enum: [ "submitted_snp_array" ]
-
   data_category:
     term:
       $ref: "_terms.yaml#/data_category"
     enum:
       - SNP Array Data
-
-  data_type:
-    term:
-      $ref: "_terms.yaml#/data_type"
-    enum:
-      - Aggregated SNP Alleles
-      - Individual SNP Alleles
 
   data_format:
     term:
@@ -77,6 +71,13 @@ properties:
       - PED
       - VCF
       - IND
+
+  data_type:
+    term:
+      $ref: "_terms.yaml#/data_type"
+    enum:
+      - Aggregated SNP Alleles
+      - Individual SNP Alleles
 
   experimental_strategy:
     term:
@@ -96,6 +97,7 @@ properties:
 
   submitted_snp_array_files:
     $ref: "_definitions.yaml#/to_many"
-
   aliquots:
+    $ref: "_definitions.yaml#/to_many"
+  core_metadata_collections:
     $ref: "_definitions.yaml#/to_many"
