@@ -24,6 +24,7 @@ systemProperties:
 required:
   - submitter_id
   - analyte_type
+  - type
 
 uniqueKeys:
   - [id]

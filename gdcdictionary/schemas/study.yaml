@@ -30,6 +30,7 @@ links:
     required: true
 
 required:
+  - type
   - submitter_id
   - data_description
   - study_description
@@ -63,4 +64,4 @@ properties:
       through testing.
     type: string
   projects:
-    $ref: "_definitions.yaml#/to_one"
+    $ref: "_definitions.yaml#/to_one_project"

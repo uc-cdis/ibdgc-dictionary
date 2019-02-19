@@ -37,6 +37,7 @@ required:
   - submitter_id
   - days_to_last_review
   - cases
+  - type
 
 uniqueKeys:
   - [id]

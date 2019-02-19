@@ -28,6 +28,7 @@ required:
   - submitter_id
   - sample_type
   - cases
+  - type
 
 uniqueKeys:
   - [id]

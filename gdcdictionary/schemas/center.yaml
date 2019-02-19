@@ -26,6 +26,8 @@ links:
     required: true
 
 required:
+  - submitter_id
+  - type
   - code
   - namespace
   - name

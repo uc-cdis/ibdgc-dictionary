@@ -33,6 +33,8 @@ links:
 required:
   - affection
   - diagnosis
+  - submitter_id
+  - type
 
 
 uniqueKeys:
