@@ -1,14 +1,14 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "submitted_copy_number"
-title: Submitted Copy Number
+id: "project_metadata"
+title: Project Metadata
 type: object
 namespace: http://gdc.nci.nih.gov
-category: data_file
-program: '*'
+category: metadata_file
 project: '*'
+program: '*'
 description: >
-  Data file containing normalized copy number information from an aliquot.
+  Data file containing the metadata for the project.
 additionalProperties: false
 submittable: true
 validators: null
@@ -27,37 +27,27 @@ links:
     required: true
     subgroup:
     - name: core_metadata_collections
-      backref: submitted_copy_number_files
+      backref: project_metadata_files
       label: data_from
       target_type: core_metadata_collection
       multiplicity: many_to_many
       required: false
-    - exclusive: true
+    - name: projects
+      backref: project_metadata_files
+      label: derived_from
+      target_type: project
+      multiplicity: many_to_many
       required: false
-      subgroup:
-        - name: aliquots
-          backref: submitted_copy_number_files
-          label: derived_from
-          target_type: aliquot
-          multiplicity: one_to_one
-          required: false
-        - name: read_groups
-          backref: submitted_copy_number_files
-          label: derived_from
-          target_type: read_group
-          multiplicity: many_to_many
-          required: false
 
 required:
   - submitter_id
   - type
   - file_name
   - file_size
-  - data_format
   - md5sum
   - data_category
   - data_type
-  - experimental_strategy
+  - data_format
 
 uniqueKeys:
   - [ id ]
@@ -66,26 +56,22 @@ uniqueKeys:
 properties:
   $ref: "_definitions.yaml#/data_file_properties"
   type:
-    enum: [ "submitted_copy_number" ]
+    enum: [ "project_metadata" ]
   data_category:
     term:
       $ref: "_terms.yaml#/data_category"
-    type: string
+    type:
+      - string
   data_type:
     term:
       $ref: "_terms.yaml#/data_type"
-    type: string 
+    enum: [ "Project Metadata" ]
   data_format:
     term:
       $ref: "_terms.yaml#/data_format"
-    type: string 
-  experimental_strategy:
-    term:
-      $ref: "_terms.yaml#/experimental_strategy"
-    type: string 
-  aliquots:
-    $ref: "_definitions.yaml#/to_one"
-  read_groups:
-    $ref: "_definitions.yaml#/to_many"
+    type:
+      - string
+  projects:
+    $ref: "_definitions.yaml#/to_one_project"
   core_metadata_collections:
     $ref: "_definitions.yaml#/to_many"

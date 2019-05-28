@@ -8,7 +8,7 @@ category: clinical
 program: '*'
 project: '*'
 description: >
-  Data for the characterization of the patient by means of segementing the population (e.g.,
+  Data for the characterization of the participant by means of segementing the population (e.g.,
   characterization by age, sex, or race).
 additionalProperties: false
 submittable: true
@@ -33,9 +33,12 @@ required:
   - submitter_id
   - type
   - cases
+  - gender
 
 preferred:
-  - year_of_death
+  - race
+  - hispanic
+  - jewish
 
 uniqueKeys:
   #unclear if want submitter ID for clinical
@@ -59,38 +62,49 @@ properties:
       - "null"
 
   gender:
-    term:
-      $ref: "_terms.yaml#/gender"
     enum:
-      - female
-      - male
-      - unknown
-      - unspecified
-      - not reported
+      - Male
+      - Female
+      - Unknown
 
   race:
-    term:
-      $ref: "_terms.yaml#/race"
+    description: >
+      An individul's self-reported racial classification. The provided values
+      are based on categories used by the U.S. Census Bureau, but have been
+      augmented to distinguish further between Asian and Middle-Eastern groups.
     enum:
-      - white
-      - american indian or alaska native
-      - black or african american
-      - asian
-      - native hawaiian or other pacific islander
-      - other
+      - White
+      - Black or African American
+      - American Indian or Alaska Native
+      - Native Hawaiian or Other Pacific Islander
+      - East-Asian
+      - South-Asian
+      - Asian (unspecified)
+      - Middle-Eastern
+      - Other
       - Unknown
-      - not reported
-      - not allowed to collect
 
-  ethnicity:
-    term:
-      $ref: "_terms.yaml#/ethnicity"
+  other_race:
+    description: >
+      Racial designation not matching one of the enumerated racial categories.
+    type:
+      - string
+
+  hispanic:
+    description: >
+      Whether a participant describes him or herself as Hispanic or Latino.
     enum:
-      - hispanic or latino
-      - not hispanic or latino
+      - "Yes"
+      - "No"
       - Unknown
-      - not reported
-      - not allowed to collect
+
+  jewish:
+    description: >
+      Whether a participant describes him or herself as Jewish.
+    enum:
+      - "Yes"
+      - "No"
+      - Unknown
 
   year_of_birth:
     term:
@@ -98,11 +112,6 @@ properties:
     type:
       - number
       - "null"
-
-  year_of_death:
-    term:
-      $ref: "_terms.yaml#/year_of_death"
-    type: number
 
   cases:
     $ref: "_definitions.yaml#/to_one"

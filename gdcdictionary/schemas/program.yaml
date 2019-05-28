@@ -37,5 +37,7 @@ properties:
     type: string
     description: "Full name/title of the program."
   dbgap_accession_number:
+    # Must retain this property even if we're not using it; can repeat program
+    # name in this field
     type: string
     description: "The dbgap accession number provided for the program."
