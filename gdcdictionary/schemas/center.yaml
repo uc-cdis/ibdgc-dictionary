@@ -48,19 +48,23 @@ properties:
   name:
     type: string
     description: >
-      Name of center at which participants were recruited and/or at which data
-      were collected.
+      Name of center at which participants were recruited and/or at which data were collected.
   investigator_name:
     type: string
     description: >
-      Name of the principal investigator responsible for recruiting participants
-      and/or submitting data.
+      Name of the principal investigator responsible for recruiting participants and/or submitting data.
   state:
     $ref: "_definitions.yaml#/state"
   submitter_id:
     type:
       - string
       - "null"
+  country:
+      type: string
+      description: >
+        Name of the country at which participants were recruited and/or at which data were collected.
+  
+  
   projects:
     $ref: "_definitions.yaml#/to_many_project"
   project_id:
