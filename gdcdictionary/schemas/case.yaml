@@ -1,6 +1,6 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "case"
+id: "participant"
 title: Participant
 type: object
 namespace: http://gdc.nci.nih.gov
@@ -23,7 +23,7 @@ systemProperties:
 
 links:
   - name: centers
-    backref: cases
+    backref: participants
     label: recruited_at
     target_type: center
     multiplicity: many_to_one
@@ -38,7 +38,7 @@ uniqueKeys:
   - [id]
   - [project_id, submitter_id]
 
-# Case properties
+# Participant properties
 properties:
   type:
     type: string

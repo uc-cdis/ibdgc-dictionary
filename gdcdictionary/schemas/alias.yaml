@@ -20,17 +20,17 @@ systemProperties:
   - state
 
 links:
-  - name: cases
+  - name: participants
     backref: aliases
     label: identifies
-    target_type: case
+    target_type: participant
     multiplicity: many_to_one
     required: true
 
 required:
   - submitter_id
   - type
-  - cases
+  - participants
   - id_type
   - value
 
@@ -62,7 +62,7 @@ properties:
       a single alphanumeric value, or a pair of values representing the
       family/pedigree and individual, separated by a comma.
     type: string
-  cases:
+  participants:
     $ref: "_definitions.yaml#/to_one"
   project_id:
     $ref: "_definitions.yaml#/project_id"
