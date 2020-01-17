@@ -74,7 +74,10 @@ uniqueKeys:
 
 properties:
   $ref: "_definitions.yaml#/data_file_properties"
-
+  
+  type:
+    type: string
+    
   data_category:
     term:
       $ref: "_terms.yaml#/data_category"
