@@ -1,6 +1,6 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "extra_intestinal_manifestation"
+id: "extra_intestinal_manifestations"
 title: Extra-Intestinal Manifestations 
 type: object
 namespace: https://dcp.bionimbus.org
@@ -22,7 +22,7 @@ systemProperties:
 
 links:
   - name: visits
-    backref: extra_intestinal_manifestations
+    backref: extra_intestinal_manifestationss
     label: performed_at
     target_type: visit
     multiplicity: one_to_one
