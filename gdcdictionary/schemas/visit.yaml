@@ -10,7 +10,7 @@ project: '*'
 description: >
   A visit by a patient or study participant to a medical professional. A clinical encounter that
   encompasses planned and unplanned trial interventions, procedures and assessments that may be
-  performed on a subject. A visit has a start and an end, each described with a rule. The process
+  performed on a participant. A visit has a start and an end, each described with a rule. The process
   by which information about the health status of an individual is obtained before and after a study
   has officially closed; an activity that continues something that has already begun or that repeats
   something that has already been done.
@@ -29,14 +29,14 @@ links:
   - name: participants
     backref: visits
     label: describes
-    target_type: subject
+    target_type: participant
     multiplicity: many_to_one
     required: true
 
 required:
   - submitter_id
   - type
-  - subjects
+  - participants
 
 uniqueKeys:
   - [id]
@@ -108,7 +108,7 @@ properties:
 
   weight:
     description: >
-      The weight of the subject measured in grams.
+      The weight of the participant measured in grams.
     type: number
 
   weight_percentage:
