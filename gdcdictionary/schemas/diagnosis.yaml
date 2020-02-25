@@ -110,6 +110,12 @@ properties:
       - "No"
       - Unknown
 
+  inception_case:
+    description: TBD
+    enum:
+      - "Yes"
+      - "No"
+
   participants:
     $ref: "_definitions.yaml#/to_one"
   project_id:

@@ -55,6 +55,28 @@ properties:
     type: array
     items:
       type: string
+
+  consent_codes:
+    type: array
+
+  consented_for_data_sharing:
+    $ref: "_definitions.yaml#/consented_for_data_sharing"
+
+  consortium_id:
+    $ref: "_definitions.yaml#/consortium_id"
+
+  consortium_id_of_child:
+    $ref: "_definitions.yaml#/consortium_id_of_child"
+
+  fathers_consortium_id:
+    $ref: "_definitions.yaml#/fathers_consortium_id"
+
+  local_pedigree_id:
+    $ref: "_definitions.yaml#/local_pedigree_id"
+
+  mothers_consortium_id:
+    $ref: "_definitions.yaml#/mothers_consortium_id"
+    
   centers:
     $ref: "_definitions.yaml#/to_one"
   project_id:
