@@ -56,9 +56,6 @@ properties:
     items:
       type: string
 
-  consent_codes:
-    type: array
-
   consented_for_data_sharing:
     description: >
       TBD
