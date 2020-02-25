@@ -61,21 +61,27 @@ properties:
 
   consented_for_data_sharing:
     $ref: "_definitions.yaml#/consented_for_data_sharing"
+    type: integer
 
   consortium_id:
     $ref: "_definitions.yaml#/consortium_id"
+    type: integer
 
   consortium_id_of_child:
     $ref: "_definitions.yaml#/consortium_id_of_child"
+    type: integer
 
   fathers_consortium_id:
     $ref: "_definitions.yaml#/fathers_consortium_id"
+    type: integer
 
   local_pedigree_id:
     $ref: "_definitions.yaml#/local_pedigree_id"
+    type: integer
 
   mothers_consortium_id:
     $ref: "_definitions.yaml#/mothers_consortium_id"
+    type: integer
     
   centers:
     $ref: "_definitions.yaml#/to_one"
