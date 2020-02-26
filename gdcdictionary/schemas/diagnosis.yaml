@@ -121,7 +121,15 @@ properties:
       - "unexplained weight loss"
 
   control_checklist:
-    description: T
+    description: >
+      TBD
+    enum:
+      - "no family history of IBD" 
+      - "Never been diagnosed with IBD"
+      - "Never experienced chronic diarrhea"
+      - "unexplained rectal bleeding"
+      - "unexplained weight loss"
+      
   visits:
     $ref: "_definitions.yaml#/to_one"
   project_id:
