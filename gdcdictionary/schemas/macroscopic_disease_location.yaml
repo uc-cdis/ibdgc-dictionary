@@ -39,6 +39,167 @@ required:
 
 properties:
   $ref: "_definitions.yaml#/ubiquitous_properties"
+  
+  dis_loc_gi_esophagus:
+    description: >
+      Disease location: Upper GI - Esophagus
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  dis_loc_gi_stomach:
+    description: >
+      Disease location: Upper GI - Stomach
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  dis_loc_gi_duodenum:
+    description: >
+      Disease location: Upper GI - Duodenum
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  dis_loc_jejunal:
+    description: >
+      Disease location: Jejunum
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  dis_loc_proximal_ileal:
+    description: >
+      Disease location: Proximal ileum
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  dis_loc_distal_ileal:
+    description: >
+      Disease location: Distal ileum
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+    
+  dis_loc_terminal_ileal:
+    description: >
+      Disease location: Terminal ileum
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  dis_loc_cecum_colorectal:
+    description: >
+      Disease location: Colorectal - Cecum
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+  
+  dis_loc_colon_colorectal:
+    description: >
+      Disease location: Colorectal - Colon
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+  
+  dis_loc_rectum_colorectal:
+    description: >
+      Disease location: Colorectal - Rectum
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  dis_loc_perianal:
+    description: >
+      Disease location: Perianal/Perineal
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  dis_behavior:
+    description: >
+      CD disease behavior
+    enum:
+      - "B1"
+      - "B2" 
+      - "B3" 
+      - "Unknown"
+
+  dis_loc_proctitis:
+    description: >
+      Disease location: Proctitis
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  dis_loc_left:
+    description: >
+      Disease location: Left-sided (to splenic flexure)
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  dis_loc_extensive:
+    description: >
+      Disease location: Extensive (beyond splenic flexure)
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  pancolitis:
+    description: >
+      Disease location: Pancolitis
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  periappendiceal_inflammation:
+    description: >
+      Disease location: Periappendiceal inflammation
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  terminal_ileum_visualized:
+    description: >
+      Terminal ileum visualized
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  terminal_ileum_visualized_biopsied_yes:
+    description: >
+      Yes, Terminal ileum visualized
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  terminal_ileum_visualized_if_biopsied:
+    description: >
+      If Terminal ileum visualized is biopsied
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
 
   visits:
     $ref: "_definitions.yaml#/to_one"
