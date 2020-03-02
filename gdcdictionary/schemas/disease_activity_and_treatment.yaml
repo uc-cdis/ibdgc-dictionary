@@ -307,26 +307,29 @@ properties:
   other_biological_therapies_since_diagnosis:
     description: >
       Other biological therapies used since diagnosis?
-    enum:
-      - "Yes"
-      - "No"
-      - "Unknown"
+    type: array
+    additionalItems: false
+    items:
+        type
+          - string
 
   other_biological_therapies_within_first_month:
     description: >
       Other biological therapies used within first month?
-    enum:
-      - "Yes"
-      - "No"
-      - "Unknown"
+    type: array
+    additionalItems: false
+    items:
+        type
+          - string
 
   other_biological_therapies_used_currently:
     description: >
       Other biological therapies used currently?
-    enum:
-      - "Yes"
-      - "No"
-      - "Unknown"
+    type: array
+    additionalItems: false
+    items:
+        type
+          - string
 
   eternal_nutrition_since_diagnosis:
     description: >
