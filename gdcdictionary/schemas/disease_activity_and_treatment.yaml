@@ -40,5 +40,406 @@ required:
 properties:
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
+  current_disease_activity:
+    description: >
+      Current disease activity
+    enum:
+      - "Normal/Remission"
+      - "Mild"
+      - "Moderate"
+      - "Severe"
+      - "Unknown"
+
+  physician_global_assessment:
+    description: >
+      Physician global assessment of disease activity since diagnosis
+    enum:
+      - "Continuously quiescent"
+      - "Mild with remissions"
+      - "Mild but chronically active"
+      - "Moderate or severe exacerbations but remissions"
+      - "Chronically active moderate/severe disease "
+      - "Unknown"
+      - "Less than 1 year since diagnosis"
+
+  hospitalizations_since_diagnosis:
+    description: >
+      Hospitalizations since diagnosis
+    enum:
+      - "1"
+      - "2"
+      - "2 or more"
+      - "Unknown"
+
+  oralster_diag:
+    description: >
+      Ever received oral steroids (for treatment of IBD)?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  oralster_diag_since_diagnosis:
+    description: >
+      Used oral corticosteroids since diagnosis?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  oralster_diag_used_within_first_month:
+    description: >
+      Used oral corticosteroids within first month?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+  
+  oralster_diag_used_currently:
+    description: >
+      Used oral corticosteroids currently
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  ivster_diag:
+    description: >
+      Ever received IV steroids (for treatment of IBD)?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  ivster_since_diagnosis:
+    description: >
+      IV corticosteroids used since diagnosis?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  ivster_diag_within_first_month:
+    description: >
+      IV corticosteroids within first month?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  ivster_diag_used_currently:
+    description: >
+      Used IV corticosteroids currently?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  atnfcyclo_diag:
+    description: >
+      Ever received anti-TNF or cyclosporine (for treatment of IBD)?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  atnfcyclo_diag_since_diagnosis:
+    description: >
+      anti-TNF or cyclosporine used since diagnosis?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  atnfcyclo_diag_within_first_month:
+    description: >
+      anti-TNF or cyclosporine used within first month?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  atnfcyclo_diag_used_currently:
+    description: >
+      anti-TNF or cyclosporine used currently?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  immuno_diag:
+    description: >
+      Ever received other immunomodulatory drugs (for treatment of IBD)?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  immuno_diag_since_diagnosis:
+    description: >
+      immunomodulatory drugs used since diagnosis?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+    
+  immuno_diag_within_first_month:
+    description: >
+      immunomodulatory drugs used within first month?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+    
+  immuno_diag_used_currently:
+    description: >
+      immunomodulatory drugs used currently?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  atnfcyclo_ind:
+    description: >
+      If received anti-TNF or cyclosporine, was this for treatment of an acute flare, chronic refractory IBD, or both? (Required when atnfcyclo_diag is equal to "Yes"; oth- erwise must be left blank)
+    enum:
+      - "Acute flare"
+      - "Chronic refractory IBD"
+      - "Both" 
+      - "Unknown"
+  
+  aminosalicylates_since_diagnosis:
+    description: >
+      aminosalicylates used since diagnosis?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  aminosalicylates_within_first_month:
+    description: >
+      aminosalicylates used within first month?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  aminosalicylates_used_currently:
+    description: >
+      aminosalicylates used currently?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  antibiotics_since_diagnosis:
+    description: >
+      antibiotics used since diagnosis?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  antibiotics_within_first_month:
+    description: >
+      antibiotics used within first month?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  antibiotics_used_currently:
+    description: >
+      antibiotics used currently?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  mtx_since_diagnosis:
+    description: >
+      mtx used since diagnosis?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  mtx_within_first_month:
+    description: >
+      mtx used within first month?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  mtx_used_currently:
+    description: >
+      mtx used currently?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  mtx_since_diagnosis:
+    description: >
+      mtx used since diagnosis?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  mtx_within_first_month:
+    description: >
+      mtx used within first month?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  mtx_used_currently:
+    description: >
+      mtx used currently?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  other_biological_therapies_since_diagnosis:
+    description: >
+      Other biological therapies used since diagnosis?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  other_biological_therapies_within_first_month:
+    description: >
+      Other biological therapies used within first month?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  other_biological_therapies_used_currently:
+    description: >
+      Other biological therapies used currently?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  eternal_nutrition_since_diagnosis:
+    description: >
+      Enteral nutrition used since diagnosis?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  eternal_nutrition_within_first_month:
+    description: >
+      Enteral nutrition used within first month?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  eternal_nutrition_used_currently:
+    description: >
+      Enteral nutrition used currently?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  subjects_general_well_being:
+    description: >
+      Subject's general well-being
+    enum:
+      - "Very well"
+      - "Slightly below par"
+      - "Poor"
+      - "Very poor"
+      - "Terrible"
+      - "Unknown"
+
+  abdominal_pain:
+    description: >
+      Abdominal pain
+    enum:
+      - "None"
+      - "Mild"
+      - "Moderate"
+      - "Severe"
+      - "Unknown"
+  
+  No_of_liquid_stools_per_day:
+    description: >
+      No. of liquid stools per day
+    type:
+      - string
+    
+  stool_frequency:
+    description: >
+      Stool frequency
+    enum:
+      - "Normal"
+      - "1-2 stools/day more than normal"
+      - "3-4 stools/day more than normal"
+      - "> 4 stools/day morethan normal"
+      - "Unknown"
+
+  rectal_bleeding:
+    description: >
+      Stool frequency
+    enum:
+      - "None"
+      - "Visible blood with stool less than half the time"
+      - "Visible blood with stool half the time or more"
+      - "Passing blood alone"
+      - "Unknown"
+    
+  abdominal_mass:
+    description: >
+      Abdominal mass
+    enum:
+      - "None"
+      - "Dubious"
+      - "Definite"
+      - "Definite and tender"
+      - "Unknown"
+
+  aphthous_ulcers:
+    description: >
+      Aphthous ulcers complication
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  anal_fissure:
+    description: >
+      Anal fissure complication
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  new_fistula:
+    description: >
+      New fistula complication
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  abscess:
+    description: >
+      Abscess complication
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+  
   visits:
     $ref: "_definitions.yaml#/to_one"

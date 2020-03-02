@@ -38,5 +38,101 @@ required:
 properties:
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
+  pediatric_onset:
+    description: >
+      Pediatric Onset
+    enum:
+      - "Yes"
+      - "No"
+
+  pubic_hair_development:
+    description: >
+      Pubic hair development
+    enum:
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "Unknown"
+
+  genitalia:
+    description: >
+      Pubic hair development (male only)
+    enum:
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "Unknown"
+
+  breast_development:
+    description: >
+      Breast development (females only)
+    enum:
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "Unknown"
+
+  height_at_diagnosis:
+    description: >
+      Height at diagnosis
+    type: 
+      - number
+
+  height_at_diagnosis_unit:
+    description: >
+      Height at diagnosis unit
+    enum:
+      - "inches"
+      - "centimeters"
+      - "Unknown"
+  
+  weight_at_diagnosis:
+    description: >
+      Weight at diagnosis
+    type: 
+      - number
+
+  weight_at_diagnosis_unit:
+    description: >
+      Height at diagnosis unit
+    enum:
+      - "lb"
+      - "kg"
+      - "Unknown"
+
+  height:
+    description: >
+      Height at diagnosis
+    type: 
+      - number
+
+  height_unit:
+    description: >
+      Height at diagnosis unit
+    enum:
+      - "inches"
+      - "centimeters"
+      - "Unknown"
+  
+  weight:
+    description: >
+      Weight at diagnosis
+    type: 
+      - number
+
+  weight_unit:
+    description: >
+      Height at diagnosis unit
+    enum:
+      - "lb"
+      - "kg"
+      - "Unknown"
+
   visits:
     $ref: "_definitions.yaml#/to_one"

@@ -40,5 +40,93 @@ required:
 properties:
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
+  liver_psc:
+    description: >
+      Liver: Primary sclerosing cholangitis
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  joint_as:
+    description: >
+      Joints: Ankylosing spondylitis
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  large_joint_related_to_disease_activity:
+    description: >
+      Joints: Large joint related to disease activity
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  small_joint_unrelated_to_disease_activity:
+    description: >
+      Joints: Small joint unrelated to disease activity
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  sacro_iliitis:
+    description: >
+      Joints: Sacro-iliitis
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  non_specific_joint_inflammation:
+    description: >
+      Joints: Non-specific joint inflammation
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  erythema_nodosum:
+    description: >
+      Skin: Erythema nodosum
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  pyoderma:
+    description: >
+      Skin: Pyoderma
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  uveitis:
+    description: >
+      Eyes: Uveitis
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  episcleritis:
+    description: >
+      Eyes: Episcleritis
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  undiagnosed_ocular_inflammation:
+    description: >
+      Eyes: Undiagnosed ocular inflammation:
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
   visits:
     $ref: "_definitions.yaml#/to_one"

@@ -40,5 +40,41 @@ required:
 properties:
   $ref: "_definitions.yaml#/ubiquitous_properties"
 
+  family_history:
+    description: >
+      Family history of IBD in first or second degree relatives
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+  
+  family_type:
+    description: >
+      TBD
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  father_history:
+    description: >
+      History of IBD - father
+    enum:
+      - "CD"
+      - "UC/IC"
+      - "IBD affected (type unclear)"
+      - "Unaffected"
+      - "Unknown"
+
+  mother_history:
+    description: >
+      History of IBD - mother
+    enum:
+      - "CD"
+      - "UC/IC"
+      - "IBD affected (type unclear)"
+      - "Unaffected"
+      - "Unknown"
+
   visits:
     $ref: "_definitions.yaml#/to_one"
