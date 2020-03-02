@@ -68,6 +68,12 @@ properties:
       Average number of cigarettes smoked per day
     type:
       - integer
+
+  nocigar_day_unknown:
+    description: >
+      Average number of cigarettes smoked per day (Unknown)
+    type:
+      - boolean
   
   visits:
     $ref: "_definitions.yaml#/to_one"

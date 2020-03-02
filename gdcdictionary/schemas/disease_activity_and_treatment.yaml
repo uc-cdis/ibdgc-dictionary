@@ -134,7 +134,7 @@ properties:
       - "Yes"
       - "No"
       - "Unknown"
-
+     
   atnfcyclo_diag:
     description: >
       Ever received anti-TNF or cyclosporine (for treatment of IBD)?
@@ -307,26 +307,23 @@ properties:
   other_biological_therapies_since_diagnosis:
     description: >
       Other biological therapies used since diagnosis?
-    enum:
-      - "Yes"
-      - "No"
-      - "Unknown"
+    type: array
+    items:
+      type: string
 
   other_biological_therapies_within_first_month:
     description: >
       Other biological therapies used within first month?
-    enum:
-      - "Yes"
-      - "No"
-      - "Unknown"
+    type: array
+    items:
+      type: string
 
   other_biological_therapies_used_currently:
     description: >
       Other biological therapies used currently?
-    enum:
-      - "Yes"
-      - "No"
-      - "Unknown"
+    type: array
+    items:
+      type: string
 
   eternal_nutrition_since_diagnosis:
     description: >
@@ -378,7 +375,13 @@ properties:
       No. of liquid stools per day
     type:
       - string
-    
+      
+  No_of_liquid_stools_per_day_unknown:
+    description: >
+      No. of liquid stools per day (Unknown)
+    type:
+      - boolean
+      
   stool_frequency:
     description: >
       Stool frequency
