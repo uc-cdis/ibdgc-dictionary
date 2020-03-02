@@ -45,8 +45,8 @@ properties:
     description: >
       Colectomy for complication or treatment of UC/IC.
     enum:
-      - Yes
-      - No
+      - "Yes"
+      - "No"
       - Unknown
   
   surgery_yr_colectomy:
@@ -61,32 +61,32 @@ properties:
     description: >
       Indication for colectomy: Dysplasia/cancer.
     enum:
-      - Yes
-      - No
+      - "Yes"
+      - "No"
       - Unknown
 
   surgery_chronic:
     description: >
       Indication for colectomy: Chronic continuous disease.
     enum:
-      - Yes
-      - No
+      - "Yes"
+      - "No"
       - Unknown
 
   surgery_acute:
     description: >
       Indication for colectomy: Acute fulminant disease.
     enum:
-      - Yes
-      - No
+      - "Yes"
+      - "No"
       - Unknown
   
   appendectomy:
     description: >
       Appendectomy for complication or treatment of UC/IC.
     enum:
-      - Yes
-      - No
+      - "Yes"
+      - "No"
       - Unknown
   
   appendectomy_yr:
@@ -101,88 +101,88 @@ properties:
     description: >
       Surgery for complication or treatment of CD.
     enum:
-      - Yes
-      - No
+      - "Yes"
+      - "No"
       - Unknown
   
   small_bowel_resection:
     description: >
       Small bowel resection.
     enum:
-      - Yes
-      - No
+      - "Yes"
+      - "No"
       - Unknown
 
   large_bowel_resection:
     description: >
       Large bowel resection.
     enum:
-      - Yes
-      - No
+      - "Yes"
+      - "No"
       - Unknown
   
   strictureplasty:
     description: >
       Strictureplasty.
     enum:
-      - Yes
-      - No
+      - "Yes"
+      - "No"
       - Unknown
 
   diversion:
     description: >
       Diversion.
     enum:
-      - Yes
-      - No
+      - "Yes"
+      - "No"
       - Unknown
 
   permanent_stoma:
     description: >
       Permanent stoma.
     enum:
-      - Yes
-      - No
+      - "Yes"
+      - "No"
       - Unknown
 
   gastroenterostomy:
     description: >
       Gastroenterostomy.
     enum:
-      - Yes
-      - No
+      - "Yes"
+      - "No"
       - Unknown
 
   abdominal_fistula_abscess:
     description: >
       Abdominal fistula/abscess.
     enum:
-      - Yes
-      - No
+      - "Yes"
+      - "No"
       - Unknown
 
   perineal_fistula_abscess:
     description: >
       Perineal fistula/abscess.
     enum:
-      - Yes
-      - No
+      - "Yes"
+      - "No"
       - Unknown
 
   surgery_dysplasia_cancer:
     description: >
       Surgery for dysplasia/cancer.
     enum:
-      - Yes
-      - No
+      - "Yes"
+      - "No"
       - Unknown
 
   diagnosis_dysplasia_cancer_colorectal:
     description: >
       Diagnosis of dysplasia/cancer (colorectal).
     enum:
-      - Yes
-      - No
+      - "Yes"
+      - "No"
       - Unknown
   
   diagnosis_dysplasia_cancer_colorectal_yr:
@@ -197,16 +197,16 @@ properties:
     description: >
       Pouchitis.
     enum:
-      - Yes
-      - No
+      - "Yes"
+      - "No"
       - Unknown
 
   surgery_since_last_assessment:
     description: >
       Surgery for complication or treatment of UC/IC since last assessment.
     enum:
-      - Yes
-      - No
+      - "Yes"
+      - "No"
       - Unknown
 
   surgery_date:
