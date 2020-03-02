@@ -308,28 +308,22 @@ properties:
     description: >
       Other biological therapies used since diagnosis?
     type: array
-    additionalItems: false
     items:
-        type
-          - string
+      type: string
 
   other_biological_therapies_within_first_month:
     description: >
       Other biological therapies used within first month?
     type: array
-    additionalItems: false
     items:
-        type
-          - string
+      type: string
 
   other_biological_therapies_used_currently:
     description: >
       Other biological therapies used currently?
     type: array
-    additionalItems: false
     items:
-        type
-          - string
+      type: string
 
   eternal_nutrition_since_diagnosis:
     description: >
