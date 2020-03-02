@@ -23,17 +23,17 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: participants
+  - name: visits
     backref: diagnoses
     label: describes
-    target_type: participant
+    target_type: visit
     multiplicity: many_to_one
     required: true
 
 required:
   - submitter_id
   - type
-  - participants
+  - visits
   - ibd_affection_status
 
 preferred:
@@ -110,7 +110,27 @@ properties:
       - "No"
       - Unknown
 
-  participants:
+  inception_case:
+    description: >
+      TBD
+    enum:
+      - "no family history of IBD" 
+      - "Never been diagnosed with IBD" 
+      - "Never experienced chronic diarrhea" 
+      - "unexplained rectal bleeding" 
+      - "unexplained weight loss"
+
+  control_checklist:
+    description: >
+      TBD
+    enum:
+      - "no family history of IBD" 
+      - "Never been diagnosed with IBD"
+      - "Never experienced chronic diarrhea"
+      - "unexplained rectal bleeding"
+      - "unexplained weight loss"
+      
+  visits:
     $ref: "_definitions.yaml#/to_one"
   project_id:
     $ref: "_definitions.yaml#/project_id"

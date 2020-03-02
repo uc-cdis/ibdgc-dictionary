@@ -41,6 +41,13 @@ links:
     multiplicity: many_to_one
     required: true
 
+  - name: visits
+    backref: samples
+    label: related_to
+    target_type: visit
+    multiplicity: many_to_one
+    required: false
+
 # For additional properties and possible values, see original version of this file
 properties:
   type:
@@ -141,6 +148,8 @@ properties:
       - Not Reported
       - Not Allowed To Collect
   participants:
+    $ref: "_definitions.yaml#/to_one"
+  visits:
     $ref: "_definitions.yaml#/to_one"
   project_id:
     type: string

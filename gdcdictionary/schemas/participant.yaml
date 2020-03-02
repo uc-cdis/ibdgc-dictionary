@@ -55,6 +55,63 @@ properties:
     type: array
     items:
       type: string
+
+  consented_for_data_sharing:
+    description: >
+      TBD
+    type: boolean
+
+  consortium_id:
+    description: >
+      TBD
+    type:
+      - integer
+
+  consortium_id_of_child:
+    description: >
+      TBD
+    type:
+      - integer
+
+  consortium_id_of_affected_spouse:
+    description: >
+      TBD
+    type:
+      - integer
+
+  fathers_consortium_id:
+    description: >
+      TBD
+    type:
+      - integer
+
+  local_pedigree_id:
+    description: >
+      TBD
+    type:
+      - integer
+
+  mothers_consortium_id:
+    description: >
+      TBD
+    type:
+      - integer
+
+  relationship_to_proband:
+    description: >
+      TBD
+    enum:
+      - Crohn's Disease
+      - Ulcerative Colitis
+      - Indeterminate
+      - Unknown
+      - Not Applicable
+
+  initials:
+    description: >
+      TBD
+    type: string     
+    
   centers:
     $ref: "_definitions.yaml#/to_one"
   project_id:

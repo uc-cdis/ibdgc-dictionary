@@ -77,12 +77,13 @@ properties:
       - Black or African American
       - American Indian or Alaska Native
       - Native Hawaiian or Other Pacific Islander
-      - East-Asian
-      - South-Asian
-      - Asian (unspecified)
-      - Middle-Eastern
-      - Other
+      - Asian
       - Unknown
+
+  race_other:
+    description: >
+      TBD
+    type: string
 
   other_race:
     description: >
@@ -96,7 +97,7 @@ properties:
     enum:
       - "Yes"
       - "No"
-      - Unknown
+      - "Unknown"
 
   jewish:
     description: >
@@ -104,7 +105,7 @@ properties:
     enum:
       - "Yes"
       - "No"
-      - Unknown
+      - "Unknown"
 
   year_of_birth:
     term:
@@ -112,6 +113,115 @@ properties:
     type:
       - number
       - "null"
+
+  birth_order:
+    description: >
+      Birth order
+    enum:
+      - "1st"
+      - "2nd"
+      - "3rd"
+      - "4th"
+      - "5th"
+      - "6th"
+      - "> 6th"
+      - "Unknown"
+
+  paternal_gradfather_jewish:
+    description: >
+      Is paternal grandfather Jewish?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+    
+  paternal_grandmother_jewish:
+    description: >
+      Is paternal grandmother Jewish?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  maternal_gradfather_jewish:
+    description: >
+      Is maternal grandfather Jewish?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  maternal_gradfather_jewish:
+    description: >
+      Is maternal grandfather Jewish?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  maternal_grandmother_jewish:
+    description: >
+      Is maternal grandmother Jewish?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+  
+  paternal_gradfather_ashkenazi:
+    description: >
+      Is paternal grandfather Ashkenazi (Jewish)?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+    
+  paternal_grandmother_ashkenazi:
+    description: >
+      Is paternal grandmother Ashkenazi (Jewish)?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  maternal_gradfather_ashkenazi:
+    description: >
+      Is maternal grandfather Ashkenazi (Jewish)?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  maternal_grandmother_ashkenazi:
+    description: >
+      Is maternal grandmother Ashkenazi (Jewish)?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  breast_fed:
+    description: >
+      Breast fed?
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  duration_of_exclusive_breastfeeding:
+    description: >
+      If breast fed, duration of exclusive breastfeeding (months)? 
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
+  age_at_weaning:
+    description: >
+      Age at weaning (months)
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
 
   participants:
     $ref: "_definitions.yaml#/to_one"

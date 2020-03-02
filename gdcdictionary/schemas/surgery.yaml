@@ -1,0 +1,217 @@
+id: "surgery"
+title: Surgery
+type: object
+namespace: https://dcp.bionimbus.org
+category: clinical
+program: '*'
+project: '*'
+description: >
+  TBD
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: visits
+    backref: surgerys
+    label: performed_at
+    target_type: visit
+    multiplicity: one_to_one
+    required: true
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+required:
+  - submitter_id
+  - type
+  - visits
+
+properties:
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  visits:
+    $ref: "_definitions.yaml#/to_one"
+
+  surgery:
+    description: >
+      Colectomy for complication or treatment of UC/IC.
+    enum:
+      - "Yes"
+      - "No"
+      - Unknown
+  
+  surgery_yr_colectomy:
+    description: >
+      Year of surgery (colectomy).
+    type:
+      - integer
+      - "null"
+    minimum: 1900
+    
+  surgery_dysplasia:
+    description: >
+      Indication for colectomy: Dysplasia/cancer.
+    enum:
+      - "Yes"
+      - "No"
+      - Unknown
+
+  surgery_chronic:
+    description: >
+      Indication for colectomy: Chronic continuous disease.
+    enum:
+      - "Yes"
+      - "No"
+      - Unknown
+
+  surgery_acute:
+    description: >
+      Indication for colectomy: Acute fulminant disease.
+    enum:
+      - "Yes"
+      - "No"
+      - Unknown
+  
+  appendectomy:
+    description: >
+      Appendectomy for complication or treatment of UC/IC.
+    enum:
+      - "Yes"
+      - "No"
+      - Unknown
+  
+  appendectomy_yr:
+    description: >
+      Year of surgery (appendectomy).
+    type:
+      - integer
+      - "null"
+    minimum: 1900
+  
+  surgery_cd:
+    description: >
+      Surgery for complication or treatment of CD.
+    enum:
+      - "Yes"
+      - "No"
+      - Unknown
+  
+  small_bowel_resection:
+    description: >
+      Small bowel resection.
+    enum:
+      - "Yes"
+      - "No"
+      - Unknown
+
+  large_bowel_resection:
+    description: >
+      Large bowel resection.
+    enum:
+      - "Yes"
+      - "No"
+      - Unknown
+  
+  strictureplasty:
+    description: >
+      Strictureplasty.
+    enum:
+      - "Yes"
+      - "No"
+      - Unknown
+
+  diversion:
+    description: >
+      Diversion.
+    enum:
+      - "Yes"
+      - "No"
+      - Unknown
+
+  permanent_stoma:
+    description: >
+      Permanent stoma.
+    enum:
+      - "Yes"
+      - "No"
+      - Unknown
+
+  gastroenterostomy:
+    description: >
+      Gastroenterostomy.
+    enum:
+      - "Yes"
+      - "No"
+      - Unknown
+
+  abdominal_fistula_abscess:
+    description: >
+      Abdominal fistula/abscess.
+    enum:
+      - "Yes"
+      - "No"
+      - Unknown
+
+  perineal_fistula_abscess:
+    description: >
+      Perineal fistula/abscess.
+    enum:
+      - "Yes"
+      - "No"
+      - Unknown
+
+  surgery_dysplasia_cancer:
+    description: >
+      Surgery for dysplasia/cancer.
+    enum:
+      - "Yes"
+      - "No"
+      - Unknown
+
+  diagnosis_dysplasia_cancer_colorectal:
+    description: >
+      Diagnosis of dysplasia/cancer (colorectal).
+    enum:
+      - "Yes"
+      - "No"
+      - Unknown
+  
+  diagnosis_dysplasia_cancer_colorectal_yr:
+    description: >
+      Year of Diagnosis of dysplasia/cancer (colorectal).
+    type:
+      - integer
+      - "null"
+    minimum: 1900
+
+  pouchitis:
+    description: >
+      Pouchitis.
+    enum:
+      - "Yes"
+      - "No"
+      - Unknown
+
+  surgery_since_last_assessment:
+    description: >
+      Surgery for complication or treatment of UC/IC since last assessment.
+    enum:
+      - "Yes"
+      - "No"
+      - Unknown
+
+  surgery_date:
+    description: >
+      Date of surgery (colorectal).
+    type:
+      - string
+      - "null"

@@ -1,0 +1,79 @@
+id: "exposure"
+title: Exposure
+type: object
+namespace: https://dcp.bionimbus.org
+category: clinical
+program: '*'
+project: '*'
+description: >
+  TBD
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+links:
+  - name: visits
+    backref: exposures
+    label: performed_at
+    target_type: visit
+    multiplicity: one_to_one
+    required: true
+
+uniqueKeys:
+  - [id]
+  - [project_id, submitter_id]
+
+required:
+  - submitter_id
+  - type
+  - visits
+
+properties:
+  $ref: "_definitions.yaml#/ubiquitous_properties"
+
+  smoking:
+    description: >
+      Smoking status at diagnosis/ascertainment (i.e., within the three months immediately prior)
+    enum:
+      - "Yes"
+      - "Ex-smoker"
+      - "No"
+      - "Unknown"
+      - "Current smoker"
+      - "Ex-smoker"
+      - "Non-smoker"
+      - "Unknown"
+
+  smoking_start:
+    description: >
+      Year started smoking
+    type:
+      - integer
+
+  smoking_stop:
+    description: >
+      Year stopped smoking
+    type:
+      - integer
+
+  nocigar_day:
+    description: >
+      Average number of cigarettes smoked per day
+    type:
+      - integer
+
+  nocigar_day_unknown:
+    description: >
+      Average number of cigarettes smoked per day (Unknown)
+    type:
+      - boolean
+  
+  visits:
+    $ref: "_definitions.yaml#/to_one"
