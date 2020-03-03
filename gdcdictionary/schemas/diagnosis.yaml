@@ -23,12 +23,21 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: visits
-    backref: diagnoses
-    label: describes
-    target_type: visit
-    multiplicity: many_to_one
+  - exclusive: false
     required: true
+    subgroup:
+    - name: visits
+      backref: diagnoses
+      label: describes
+      target_type: visit
+      multiplicity: many_to_one
+      required: false
+    - name: participants
+      backref: diagnoses
+      label: describes
+      target_type: participant
+      multiplicity: many_to_many
+      required: false
 
 required:
   - submitter_id
@@ -130,6 +139,8 @@ properties:
       - "unexplained rectal bleeding"
       - "unexplained weight loss"
       
+  participants:
+    $ref: "_definitions.yaml#/to_many"
   visits:
     $ref: "_definitions.yaml#/to_one"
   project_id:
