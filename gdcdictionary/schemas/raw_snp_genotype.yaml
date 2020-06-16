@@ -80,7 +80,8 @@ properties:
       - Illumina
   assay_instrument_model:
     enum:
-      - Illumina Infinium Global Screening Array-24 v2.0
+      - Illumina Infinium Global Screening Array-24 Kit v2.0 BeadChip
+      - Illumina Infinium Global Screening Array-24 Kit v3.0 BeadChip
   samples:
     $ref: "_definitions.yaml#/to_many"
   core_metadata_collections:

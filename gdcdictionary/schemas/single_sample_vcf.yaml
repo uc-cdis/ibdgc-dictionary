@@ -1,0 +1,80 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "single_sample_vcf"
+title: Single Sample VCF
+type: object
+namespace: https://dcp.bionimbus.org/
+category: data_file
+program: '*'
+project: '*'
+description: >
+  Data file containing genotyping array calls distributed in vcf file format.
+additionalProperties: false
+submittable: false
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+  - state
+  - file_state
+  - error_type
+
+links:
+  - exclusive: false
+    required: true
+    subgroup:
+      - name: core_metadata_collections
+        backref: single_sample_vcf
+        label: data_from
+        target_type: core_metadata_collection
+        multiplicity: many_to_one
+        required: false
+      - name: raw_snp_genotype
+        backref: single_sample_vcf
+        label: data_from
+        target_type: raw_snp_genotype
+        multiplicity: many_to_many
+        required: false
+
+required:
+  - type
+  - submitter_id
+  - file_name
+  - file_size
+  - md5sum
+  - data_category
+  - data_type
+  - data_format
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
+properties:
+  $ref: "_definitions.yaml#/data_file_properties"
+  
+  type:
+    type: string
+    
+  data_category:
+    term:
+      $ref: "_terms.yaml#/data_category"
+    enum: [ "Simple Nucleotide Variation" ]
+
+  data_type:
+    term:
+      $ref: "_terms.yaml#/data_type"
+    enum: [ "Genotyping Array Calls" ]
+
+  data_format:
+    term:
+      $ref: "_terms.yaml#/data_format"
+    enum: [ "VCF" ]
+
+  raw_snp_genotype:
+    $ref: "_definitions.yaml#/to_many"
+  core_metadata_collections:
+    $ref: "_definitions.yaml#/to_many"
