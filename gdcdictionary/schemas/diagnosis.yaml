@@ -42,7 +42,6 @@ links:
 required:
   - submitter_id
   - type
-  - visits
   - ibd_affection_status
 
 preferred:
