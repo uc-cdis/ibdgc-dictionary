@@ -37,6 +37,12 @@ links:
         target_type: project
         multiplicity: many_to_one
         required: false
+      - name: publications
+        backref: reference_files
+        label: data_from
+        target_type: publication
+        multiplicity: many_to_one
+        required: false   
 
 required:
   - type
@@ -129,6 +135,8 @@ properties:
     items: 
       type: string
     
+  publications:
+    $ref: "_definitions.yaml#/to_many"
   core_metadata_collections:
     $ref: "_definitions.yaml#/to_many"
   projects:
