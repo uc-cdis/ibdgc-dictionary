@@ -52,6 +52,11 @@ properties:
     type: string
   doi:
     type: string
+  first_author:
+    description: First author of paper (last name, initials)
+    type: string
+  year:
+    type: integer
   projects:
     $ref: "_definitions.yaml#/to_many_project"
   project_id:
