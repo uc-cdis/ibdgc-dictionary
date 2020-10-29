@@ -130,6 +130,12 @@ properties:
     items: 
       type: string
     
+  pmid:
+    type: string
+
+  doi:
+    type: string
+    
 
   core_metadata_collections:
     $ref: "_definitions.yaml#/to_many"
