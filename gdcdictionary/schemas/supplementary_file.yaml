@@ -7,7 +7,7 @@ namespace: https://dcp.bionimbus.org/
 category: supplementary_data_file
 program: '*'
 project: '*'
-description: "Data file containing any type of reference required for a data analysis."
+description: "Data file containing any type of supplementary information from a publication."
 additionalProperties: false
 submittable: true
 validators: null
