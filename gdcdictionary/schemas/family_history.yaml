@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
 id: "family_history"
-title: Family History 
+title: Family History
 type: object
 namespace: https://dcp.bionimbus.org
 category: clinical
@@ -47,33 +47,14 @@ properties:
       - "Yes"
       - "No"
       - "Unknown"
-  
+
   family_type:
     description: >
       TBD
     enum:
-      - "Yes"
-      - "No"
-      - "Unknown"
-
-  father_history:
-    description: >
-      History of IBD - father
-    enum:
       - "CD"
-      - "UC/IC"
-      - "IBD affected (type unclear)"
-      - "Unaffected"
-      - "Unknown"
-
-  mother_history:
-    description: >
-      History of IBD - mother
-    enum:
-      - "CD"
-      - "UC/IC"
-      - "IBD affected (type unclear)"
-      - "Unaffected"
+      - "UC"
+      - "Mixed"
       - "Unknown"
 
   visits:
