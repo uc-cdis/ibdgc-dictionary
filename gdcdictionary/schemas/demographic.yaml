@@ -82,14 +82,8 @@ properties:
 
   race_other:
     description: >
-      TBD
-    type: string
-
-  other_race:
-    description: >
       Racial designation not matching one of the enumerated racial categories.
-    type:
-      - string
+    type: string
 
   hispanic:
     description: >
@@ -134,7 +128,7 @@ properties:
       - "Yes"
       - "No"
       - "Unknown"
-    
+
   paternal_grandmother_jewish:
     description: >
       Is paternal grandmother Jewish?
@@ -166,7 +160,7 @@ properties:
       - "Yes"
       - "No"
       - "Unknown"
-  
+
   paternal_gradfather_ashkenazi:
     description: >
       Is paternal grandfather Ashkenazi (Jewish)?
@@ -174,7 +168,7 @@ properties:
       - "Yes"
       - "No"
       - "Unknown"
-    
+
   paternal_grandmother_ashkenazi:
     description: >
       Is paternal grandmother Ashkenazi (Jewish)?
@@ -209,7 +203,7 @@ properties:
 
   duration_of_exclusive_breastfeeding:
     description: >
-      If breast fed, duration of exclusive breastfeeding (months)? 
+      If breast fed, duration of exclusive breastfeeding (months)?
     enum:
       - "Yes"
       - "No"

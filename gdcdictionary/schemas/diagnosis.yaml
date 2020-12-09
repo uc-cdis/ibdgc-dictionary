@@ -103,6 +103,14 @@ properties:
       - Unknown
       - Not Applicable
 
+  diag_yr:
+    description: >
+      Year of diagnosis. Must be greater than or equal to yob and less than or equal to review_yr
+    type:
+      - integer
+      - "null"
+    minimum: 1900
+
   other_diagnosis:
     description: >
       Specific diagnosis other than IBD.
@@ -122,22 +130,22 @@ properties:
     description: >
       TBD
     enum:
-      - "no family history of IBD" 
-      - "Never been diagnosed with IBD" 
-      - "Never experienced chronic diarrhea" 
-      - "unexplained rectal bleeding" 
+      - "no family history of IBD"
+      - "Never been diagnosed with IBD"
+      - "Never experienced chronic diarrhea"
+      - "unexplained rectal bleeding"
       - "unexplained weight loss"
 
   control_checklist:
     description: >
       TBD
     enum:
-      - "no family history of IBD" 
+      - "no family history of IBD"
       - "Never been diagnosed with IBD"
       - "Never experienced chronic diarrhea"
       - "unexplained rectal bleeding"
       - "unexplained weight loss"
-      
+
   participants:
     $ref: "_definitions.yaml#/to_many"
   visits:
