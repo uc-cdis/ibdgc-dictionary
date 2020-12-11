@@ -83,6 +83,14 @@ properties:
       Is the participant pregnant (women) or has been pregnant since the last visit
     type: boolean
 
+  review_yr:
+    description: >
+      Year in which the subject's phenotype data were last updated. Must be greater than or equal to both yob and diag_yr.
+    type:
+      - integer
+      - "null"
+    minimum: 1900
+
   version_data:
     description: >
       Version number of data
@@ -92,7 +100,7 @@ properties:
     description: >
       Visit number
     type: integer
-    
+
   harmonized_visit_number:
     description: >
       The derived harmonized visit number for the studies MACS and WIHS.
@@ -125,11 +133,11 @@ properties:
     description: >
       Number of days between the date used for index and the date the patient was seen or contacted at follow-up.
     type: integer
-    
+
   visit_id:
     description: >
       ID at time of interview (prior to transfer)
-    type: integer  
+    type: integer
 
   participants:
     $ref: "_definitions.yaml#/to_one"

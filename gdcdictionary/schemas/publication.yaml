@@ -34,11 +34,11 @@ required:
 
 uniqueKeys:
   - [ id ]
-  - [ project_id, submitter_id ] 
+  - [ project_id, submitter_id ]
 
 properties:
   type:
-    enum: [ "publication" ] 
+    enum: [ "publication" ]
   id:
     $ref: "_definitions.yaml#/UUID"
     systemAlias: node_id
@@ -50,13 +50,26 @@ properties:
       - "null"
   pmid:
     type: string
+
   doi:
     type: string
+
   first_author:
     description: First author of paper (last name, initials)
     type: string
+
+  last_author:
+    description: Last author of paper (last name, initials)
+    type: string
+
+  journal:
+    description: Name of the journal
+    type: string
+
   year:
     type: integer
+
+
   projects:
     $ref: "_definitions.yaml#/to_many_project"
   project_id:
