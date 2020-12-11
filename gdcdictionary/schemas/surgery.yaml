@@ -52,13 +52,27 @@ properties:
 
   surgery:
     description: >
+      Abdominal surgery for complication or treatment of CD.
+    enum:
+      - "Yes"
+      - "No"
+      - Unknown
+
+  surgery_yr:
+    description: >
+      Date of surgery (colorectal). Year of first operation.
+    type:
+      - integer
+
+  colectomy:
+    description: >
       Colectomy for complication or treatment of UC/IC.
     enum:
       - "Yes"
       - "No"
       - Unknown
 
-  surgery_yr_colectomy:
+  colectomy_yr:
     description: >
       Year of surgery (colectomy).
     type:
@@ -90,6 +104,22 @@ properties:
       - "No"
       - Unknown
 
+  surgery_dysplasia_cancer:
+    description: >
+      Surgery for dysplasia/cancer.
+    enum:
+      - "Yes"
+      - "No"
+      - Unknown
+
+  surgery_since_last_assessment:
+    description: >
+      Surgery for complication or treatment of UC/IC since last assessment.
+    enum:
+      - "Yes"
+      - "No"
+      - Unknown
+
   appendectomy:
     description: >
       Appendectomy for complication or treatment of UC/IC.
@@ -106,13 +136,6 @@ properties:
       - "null"
     minimum: 1900
 
-  surgery_cd:
-    description: >
-      Surgery for complication or treatment of CD.
-    enum:
-      - "Yes"
-      - "No"
-      - Unknown
 
   small_bowel_resection:
     description: >
@@ -178,14 +201,6 @@ properties:
       - "No"
       - Unknown
 
-  surgery_dysplasia_cancer:
-    description: >
-      Surgery for dysplasia/cancer.
-    enum:
-      - "Yes"
-      - "No"
-      - Unknown
-
   diagnosis_dysplasia_cancer_colorectal:
     description: >
       Diagnosis of dysplasia/cancer (colorectal).
@@ -209,21 +224,6 @@ properties:
       - "Yes"
       - "No"
       - Unknown
-
-  surgery_since_last_assessment:
-    description: >
-      Surgery for complication or treatment of UC/IC since last assessment.
-    enum:
-      - "Yes"
-      - "No"
-      - Unknown
-
-  surgery_date:
-    description: >
-      Date of surgery (colorectal).
-    type:
-      - string
-      - "null"
 
   operation_ad:
     description: >
