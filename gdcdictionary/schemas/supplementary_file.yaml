@@ -37,7 +37,12 @@ links:
         target_type: project
         multiplicity: many_to_one
         required: false
- 
+      - name: publications
+        backref: supplementary_files
+        label: data_from
+        target_type: publication
+        multiplicity: many_to_one
+        required: false
 
 required:
   - type
@@ -73,7 +78,7 @@ properties:
     term:
       $ref: "_terms.yaml#/data_format"
     type: string
-    
+
   pmid:
     description: The PubMed ID for a published article.
     type: string
@@ -81,18 +86,20 @@ properties:
   doi:
     description: The digital object identifier for a published article.
     type: string
-    
+
   first_author:
     description: First author of paper (last name, initials)
     type: string
 
   year:
     description: The year the article was published.
-    type: integer  
-    
-    
+    type: integer
+
+
 
   core_metadata_collections:
     $ref: "_definitions.yaml#/to_many"
   projects:
     $ref: "_definitions.yaml#/to_many_project"
+  publications:
+    $ref: "_definitions.yaml#/to_many"
