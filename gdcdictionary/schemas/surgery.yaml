@@ -225,6 +225,15 @@ properties:
       - string
       - "null"
 
+  operation_ad:
+    description: >
+      Number of operations for abdominal disease.
+    type:
+      - integer
+    maximum: 0
+    minimum: 21
+
+
   participants:
     $ref: "_definitions.yaml#/to_many"
   visits:
