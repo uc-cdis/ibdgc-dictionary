@@ -63,6 +63,7 @@ properties:
       Date of surgery (colorectal). Year of first operation.
     type:
       - integer
+    minimum: 1900
 
   colectomy:
     description: >
