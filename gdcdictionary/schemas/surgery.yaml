@@ -19,12 +19,21 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: visits
-    backref: surgerys
-    label: performed_at
-    target_type: visit
-    multiplicity: one_to_one
+  - exclusive: false
     required: true
+    subgroup:
+    - name: visits
+      backref: surgerys
+      label: performed_at
+      target_type: visit
+      multiplicity: one_to_one
+      required: true
+    - name: participants
+      backref: diagnoses
+      label: describes
+      target_type: participant
+      multiplicity: many_to_many
+      required: false
 
 uniqueKeys:
   - [id]
@@ -48,7 +57,7 @@ properties:
       - "Yes"
       - "No"
       - Unknown
-  
+
   surgery_yr_colectomy:
     description: >
       Year of surgery (colectomy).
@@ -56,7 +65,7 @@ properties:
       - integer
       - "null"
     minimum: 1900
-    
+
   surgery_dysplasia:
     description: >
       Indication for colectomy: Dysplasia/cancer.
@@ -80,7 +89,7 @@ properties:
       - "Yes"
       - "No"
       - Unknown
-  
+
   appendectomy:
     description: >
       Appendectomy for complication or treatment of UC/IC.
@@ -88,7 +97,7 @@ properties:
       - "Yes"
       - "No"
       - Unknown
-  
+
   appendectomy_yr:
     description: >
       Year of surgery (appendectomy).
@@ -96,7 +105,7 @@ properties:
       - integer
       - "null"
     minimum: 1900
-  
+
   surgery_cd:
     description: >
       Surgery for complication or treatment of CD.
@@ -104,7 +113,7 @@ properties:
       - "Yes"
       - "No"
       - Unknown
-  
+
   small_bowel_resection:
     description: >
       Small bowel resection.
@@ -120,7 +129,7 @@ properties:
       - "Yes"
       - "No"
       - Unknown
-  
+
   strictureplasty:
     description: >
       Strictureplasty.
@@ -184,7 +193,7 @@ properties:
       - "Yes"
       - "No"
       - Unknown
-  
+
   diagnosis_dysplasia_cancer_colorectal_yr:
     description: >
       Year of Diagnosis of dysplasia/cancer (colorectal).
