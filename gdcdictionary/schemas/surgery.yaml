@@ -29,7 +29,7 @@ links:
       multiplicity: one_to_one
       required: true
     - name: participants
-      backref: diagnoses
+      backref: surgerys
       label: describes
       target_type: participant
       multiplicity: many_to_many
@@ -229,6 +229,8 @@ properties:
     $ref: "_definitions.yaml#/to_many"
   visits:
     $ref: "_definitions.yaml#/to_one"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
   created_datetime:
     $ref: "_definitions.yaml#/datetime"
   updated_datetime:
