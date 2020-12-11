@@ -88,7 +88,7 @@ properties:
       - "No"
       - "Unknown"
 
-  dis_loc_distal_ileal:
+  dis_loc_ileal:
     description: >
       Disease location: Distal ileum
     enum:
@@ -112,7 +112,7 @@ properties:
       - "No"
       - "Unknown"
 
-  dis_loc_colon_colorectal:
+  dis_loc_colorectal:
     description: >
       Disease location: Colorectal - Colon
     enum:
