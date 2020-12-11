@@ -62,17 +62,73 @@ properties:
   data_category:
     term:
       $ref: "_terms.yaml#/data_category"
-    type: string
+    enum:
+      - Analysis Information
+      - Annotation Reference
+      - Clinical Data
+      - Familial Reference
+      - Sequencing Reference
+      - Variant Calling Reference 
+      - Other
 
   data_type:
     term:
       $ref: "_terms.yaml#/data_type"
-    type: string
+    enum:
+      - Kinship Matrix
+      - Principal Component      
+      - Script
+      - Sequencing Reference
+      - Unharmonized Clinical Data
+      - Variant Annotation
+      - Variant Call
+      - Other
 
   data_format:
     term:
       $ref: "_terms.yaml#/data_format"
+    enum:
+      - ALT
+      - AMB
+      - ANN
+      - AVRO
+      - BCF
+      - BED
+      - BWT
+      - DOCX
+      - FAI
+      - FASTA
+      - GDS
+      - GZ
+      - MD
+      - PAC
+      - POS
+      - R
+      - RDATA
+      - SA
+      - TAR
+      - TBI
+      - TSV
+      - TXT
+      - VCF
+      - XML
+      
+  callset:
+    description: >
+      Periodically, the TOPMed Informatics Research Center (IRC) performs variant identification and genotype calling on all samples available at a given time and the resulting call set is referred to as a genotype "Freeze".
     type: string
+    
+  study_version:
+    description: >
+      The version of the study that was released by data source (e.g., dbGaP)
+    type: number
+    
+  bucket_path:
+    description: >
+      The directory levels of the file as it would be found in the AWS and/or GCP bucket.
+    type: array
+    items: 
+      type: string
     
 
   core_metadata_collections:
