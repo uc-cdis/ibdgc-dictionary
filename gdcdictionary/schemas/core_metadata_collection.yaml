@@ -119,4 +119,5 @@ properties:
 
   projects:
     $ref: "_definitions.yaml#/to_one_project"
-        f
+  publications:
+    $ref: "_definitions.yaml#/to_many"
