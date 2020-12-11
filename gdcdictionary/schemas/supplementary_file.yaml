@@ -37,7 +37,12 @@ links:
         target_type: project
         multiplicity: many_to_one
         required: false
- 
+      - name: publications
+        backref: supplementary_files
+        label: data_from
+        target_type: publication
+        multiplicity: many_to_one
+        required: false
 
 required:
   - type
@@ -96,3 +101,5 @@ properties:
     $ref: "_definitions.yaml#/to_many"
   projects:
     $ref: "_definitions.yaml#/to_many_project"
+  publications:
+    $ref: "_definitions.yaml#/to_many"
