@@ -39,7 +39,7 @@ required:
 
 properties:
   $ref: "_definitions.yaml#/ubiquitous_properties"
-  
+
   dis_loc_gi_esophagus:
     description: >
       Disease location: Upper GI - Esophagus
@@ -80,6 +80,14 @@ properties:
       - "No"
       - "Unknown"
 
+  dis_loc_gi:
+    description: >
+      Disease location: Upper GI
+    enum:
+      - "Yes"
+      - "No"
+      - "Unknown"
+
   dis_loc_distal_ileal:
     description: >
       Disease location: Distal ileum
@@ -87,7 +95,7 @@ properties:
       - "Yes"
       - "No"
       - "Unknown"
-    
+
   dis_loc_terminal_ileal:
     description: >
       Disease location: Terminal ileum
@@ -103,7 +111,7 @@ properties:
       - "Yes"
       - "No"
       - "Unknown"
-  
+
   dis_loc_colon_colorectal:
     description: >
       Disease location: Colorectal - Colon
@@ -111,7 +119,7 @@ properties:
       - "Yes"
       - "No"
       - "Unknown"
-  
+
   dis_loc_rectum_colorectal:
     description: >
       Disease location: Colorectal - Rectum
@@ -133,8 +141,8 @@ properties:
       CD disease behavior
     enum:
       - "B1"
-      - "B2" 
-      - "B3" 
+      - "B2"
+      - "B3"
       - "Unknown"
 
   dis_loc_proctitis:
