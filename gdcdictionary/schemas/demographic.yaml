@@ -8,7 +8,7 @@ category: clinical
 program: '*'
 project: '*'
 description: >
-  Data for the characterization of the participant by means of segementing the population (e.g.,
+  Data for the characterization of the participant by means of segmenting the population (e.g.,
   characterization by age, sex, or race).
 additionalProperties: false
 submittable: true
@@ -62,14 +62,46 @@ properties:
       - "null"
 
   gender:
+    term:
+      $ref: "_terms.yaml#/gender"
+    enum:
+      - Female
+      - Male
+      - Unknown
+      - Not reported
+    termDef:
+      - term: Gender
+        source: NCI Thesaurus
+        term_id: C17357
+        term_version: 18.11d (Release date:2018-11-26)
+    enumDef:
+      - enumeration: Female
+        source: NCI Thesaurus
+        term_id: C46110
+        term_version: 18.09d (Release date:2018-09-24)
+      - enumeration: Male
+        source: NCI Thesaurus
+        term_id: C84364
+        term_version: 18.09d (Release date:2018-09-24)
+      - enumeration: Unknown
+        source: NCI Thesaurus
+        term_id: C17998
+        term_version: 18.09d (Release date:2018-09-24)
+      - enumeration: Not Reported
+        source: NCI Thesaurus
+        term_id:  C43234
+        term_version: 18.09d (Release date:2018-09-24)
+
+  sex:
     enum:
       - Male
       - Female
       - Unknown
 
+
   race:
     description: >
-      An individul's self-reported racial classification. The provided values
+      An individual's self-reported racial classification. The provided values
       are based on categories used by the U.S. Census Bureau, but have been
       augmented to distinguish further between Asian and Middle-Eastern groups.
     enum:
@@ -121,7 +153,7 @@ properties:
       - "> 6th"
       - "Unknown"
 
-  paternal_gradfather_jewish:
+  paternal_grandfather_jewish:
     description: >
       Is paternal grandfather Jewish?
     enum:
@@ -137,7 +169,7 @@ properties:
       - "No"
       - "Unknown"
 
-  maternal_gradfather_jewish:
+  maternal_grandfather_jewish:
     description: >
       Is maternal grandfather Jewish?
     enum:
@@ -145,7 +177,7 @@ properties:
       - "No"
       - "Unknown"
 
-  maternal_gradfather_jewish:
+  maternal_grandfather_jewish:
     description: >
       Is maternal grandfather Jewish?
     enum:
@@ -161,7 +193,7 @@ properties:
       - "No"
       - "Unknown"
 
-  paternal_gradfather_ashkenazi:
+  paternal_grandfather_ashkenazi:
     description: >
       Is paternal grandfather Ashkenazi (Jewish)?
     enum:
@@ -177,7 +209,7 @@ properties:
       - "No"
       - "Unknown"
 
-  maternal_gradfather_ashkenazi:
+  maternal_grandfather_ashkenazi:
     description: >
       Is maternal grandfather Ashkenazi (Jewish)?
     enum:
