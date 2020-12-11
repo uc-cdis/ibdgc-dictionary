@@ -59,9 +59,9 @@ properties:
     type: string
 
   year:
-    type: integer  
-    
-    
+    type: string
+    pattern: "^[0-9]{4}$"
+
   projects:
     $ref: "_definitions.yaml#/to_many_project"
   project_id:
