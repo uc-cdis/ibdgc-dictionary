@@ -19,11 +19,7 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: visits
-    backref: surgerys
-    label: performed_at
-    target_type: visit
-    multiplicity: one_to_one
+  - exclusive: false
     required: true
     subgroup:
     - name: visits
