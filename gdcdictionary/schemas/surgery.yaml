@@ -19,12 +19,21 @@ systemProperties:
   - updated_datetime
 
 links:
-  - name: visits
-    backref: surgerys
-    label: performed_at
-    target_type: visit
-    multiplicity: one_to_one
+  - exclusive: false
     required: true
+    subgroup:
+    - name: visits
+      backref: surgerys
+      label: performed_at
+      target_type: visit
+      multiplicity: one_to_one
+      required: true
+    - name: participants
+      backref: surgerys
+      label: describes
+      target_type: participant
+      multiplicity: many_to_many
+      required: false
 
 uniqueKeys:
   - [id]
@@ -43,20 +52,35 @@ properties:
 
   surgery:
     description: >
+      Abdominal surgery for complication or treatment of CD.
+    enum:
+      - "Yes"
+      - "No"
+      - Unknown
+
+  surgery_yr:
+    description: >
+      Date of surgery (colorectal). Year of first operation.
+    type:
+      - integer
+    minimum: 1900
+
+  colectomy:
+    description: >
       Colectomy for complication or treatment of UC/IC.
     enum:
       - "Yes"
       - "No"
       - Unknown
-  
-  surgery_yr_colectomy:
+
+  colectomy_yr:
     description: >
       Year of surgery (colectomy).
     type:
       - integer
       - "null"
     minimum: 1900
-    
+
   surgery_dysplasia:
     description: >
       Indication for colectomy: Dysplasia/cancer.
@@ -80,7 +104,23 @@ properties:
       - "Yes"
       - "No"
       - Unknown
-  
+
+  surgery_dysplasia_cancer:
+    description: >
+      Surgery for dysplasia/cancer.
+    enum:
+      - "Yes"
+      - "No"
+      - Unknown
+
+  surgery_since_last_assessment:
+    description: >
+      Surgery for complication or treatment of UC/IC since last assessment.
+    enum:
+      - "Yes"
+      - "No"
+      - Unknown
+
   appendectomy:
     description: >
       Appendectomy for complication or treatment of UC/IC.
@@ -88,7 +128,7 @@ properties:
       - "Yes"
       - "No"
       - Unknown
-  
+
   appendectomy_yr:
     description: >
       Year of surgery (appendectomy).
@@ -96,15 +136,8 @@ properties:
       - integer
       - "null"
     minimum: 1900
-  
-  surgery_cd:
-    description: >
-      Surgery for complication or treatment of CD.
-    enum:
-      - "Yes"
-      - "No"
-      - Unknown
-  
+
+
   small_bowel_resection:
     description: >
       Small bowel resection.
@@ -120,7 +153,7 @@ properties:
       - "Yes"
       - "No"
       - Unknown
-  
+
   strictureplasty:
     description: >
       Strictureplasty.
@@ -169,14 +202,6 @@ properties:
       - "No"
       - Unknown
 
-  surgery_dysplasia_cancer:
-    description: >
-      Surgery for dysplasia/cancer.
-    enum:
-      - "Yes"
-      - "No"
-      - Unknown
-
   diagnosis_dysplasia_cancer_colorectal:
     description: >
       Diagnosis of dysplasia/cancer (colorectal).
@@ -184,7 +209,7 @@ properties:
       - "Yes"
       - "No"
       - Unknown
-  
+
   diagnosis_dysplasia_cancer_colorectal_yr:
     description: >
       Year of Diagnosis of dysplasia/cancer (colorectal).
@@ -201,17 +226,22 @@ properties:
       - "No"
       - Unknown
 
-  surgery_since_last_assessment:
+  operation_ad:
     description: >
-      Surgery for complication or treatment of UC/IC since last assessment.
-    enum:
-      - "Yes"
-      - "No"
-      - Unknown
-
-  surgery_date:
-    description: >
-      Date of surgery (colorectal).
+      Number of operations for abdominal disease.
     type:
-      - string
-      - "null"
+      - integer
+    maximum: 0
+    minimum: 21
+
+
+  participants:
+    $ref: "_definitions.yaml#/to_many"
+  visits:
+    $ref: "_definitions.yaml#/to_one"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
