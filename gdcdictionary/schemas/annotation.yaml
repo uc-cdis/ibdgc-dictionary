@@ -38,6 +38,12 @@ links:
         target_type: raw_snp_genotype
         multiplicity: many_to_many
         required: false
+      - name: qc_workflows 
+        backref: annotations
+        label: data_from
+        target_type: qc_workflow
+        multiplicity: many_to_many
+        required: false
 
 required:
   - type
