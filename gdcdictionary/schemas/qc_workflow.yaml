@@ -1,0 +1,56 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "qc_workflow"
+title: QC Workflow
+type: object
+namespace: https://dcp.bionimbus.org/
+category: analysis
+program: '*'
+project: '*'
+description: >
+  Metadata for the qc pipeline used to create annotation files.
+additionalProperties: false
+submittable: false
+validators: null
+
+systemProperties:
+  - id
+  - project_id
+  - created_datetime
+  - updated_datetime
+  - state
+
+
+links:
+  - name: raw_snp_genotypes
+    backref: qc_workflows
+    label: performed_on
+    target_type: raw_snp_genotype
+    multiplicity: one_to_many
+    required: true
+
+
+required:
+  - type
+  - submitter_id
+  - workflow_link
+  - workflow_type
+
+uniqueKeys:
+  - [ id ]
+  - [ project_id, submitter_id ]
+
+properties:
+  $ref: "_definitions.yaml#/workflow_properties"
+  
+  type:
+    type: string
+  
+  workflow_type:
+    term:
+      $ref: "_terms.yaml#/workflow_type"
+    type: string
+    
+    
+  raw_snp_genotypes:
+    $ref: "_definitions.yaml#/to_many"

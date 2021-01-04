@@ -1,7 +1,7 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
-id: "single_sample_vcf_annotation"
-title: Single Sample VCF Annotation
+id: "annotation"
+title: Annotation
 type: object
 namespace: https://dcp.bionimbus.org/
 category: data_file
@@ -27,15 +27,21 @@ links:
     required: true
     subgroup:
       - name: core_metadata_collections
-        backref: single_sample_vcf_annotation
+        backref: annotation
         label: data_from
         target_type: core_metadata_collection
         multiplicity: many_to_one
         required: false
-      - name: single_sample_vcf
-        backref: single_sample_vcf_annotation
+      - name: raw_snp_genotypes
+        backref: annotation
         label: data_from
-        target_type: single_sample_vcf
+        target_type: raw_snp_genotype
+        multiplicity: many_to_many
+        required: false
+      - name: qc_workflows
+        backref: annotation
+        label: data_from
+        target_type: qc_workflow
         multiplicity: many_to_many
         required: false
 
@@ -106,9 +112,11 @@ properties:
       Commands used by the annotation tool to generate the annotated VCF files.
     type: string
   
-  single_sample_vcf:
+  raw_snp_genotypes:
+    $ref: "_definitions.yaml#/to_many"
+
+  qc_workflows:
     $ref: "_definitions.yaml#/to_many"
 
   core_metadata_collections:
     $ref: "_definitions.yaml#/to_many"
-
