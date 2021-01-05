@@ -105,12 +105,16 @@ properties:
       are based on categories used by the U.S. Census Bureau, but have been
       augmented to distinguish further between Asian and Middle-Eastern groups.
     enum:
-      - White
-      - Black or African American
-      - American Indian or Alaska Native
-      - Native Hawaiian or Other Pacific Islander
-      - Asian
+      - American Indian/Alaskan Native
+      - East-Asian
+      - South-Asian
+      - Asian (Unspecified)
+      - Black/African American
+      - Middle-Eastern
+      - Native Hawaiian/Pacific Islander
+      - Other
       - Unknown
+      - White
 
   race_other:
     description: >
