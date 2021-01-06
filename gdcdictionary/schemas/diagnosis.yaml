@@ -126,6 +126,13 @@ properties:
       - "No"
       - Unknown
 
+  control:
+    description: >
+      Indicator for unrelated, healthy controls (1 for controls, 0 otherwise). Those designated as controls should have no family history of IBD.
+    enum:
+      - "0"
+      - "1"
+
   inception_case:
     description: >
       TBD
