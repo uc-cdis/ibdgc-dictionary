@@ -231,8 +231,8 @@ properties:
       Number of operations for abdominal disease.
     type:
       - integer
-    maximum: 0
-    minimum: 21
+    maximum: 21
+    minimum: 0
 
 
   participants:
