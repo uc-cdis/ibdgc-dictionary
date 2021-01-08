@@ -21,21 +21,18 @@ systemProperties:
   - updated_datetime
 
 links:
-  - exclusive: false
+  - name: projects
+    backref: core_metadata_collections
+    label: data_from
+    target_type: project
+    multiplicity: many_to_one
     required: true
-    subgroup:
-    - name: publications
-      backref: core_metadata_collections
-      label: data_from
-      target_type: publication
-      multiplicity: many_to_many
-      required: false
-    - name: projects
-      backref: core_metadata_collections
-      label: data_from
-      target_type: project
-      multiplicity: many_to_one
-      required: true
+  - name: publications
+    backref: core_metadata_collections
+    label: data_from
+    target_type: publication
+    multiplicity: many_to_many
+    required: false
 
 uniqueKeys:
   - [id]
@@ -44,7 +41,6 @@ uniqueKeys:
 required:
   - submitter_id
   - type
-  - projects
 
 properties:
   $ref: "_definitions.yaml#/ubiquitous_properties"
