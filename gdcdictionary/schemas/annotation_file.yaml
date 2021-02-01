@@ -44,6 +44,12 @@ links:
         target_type: qc_workflow
         multiplicity: many_to_many
         required: false
+      - name: data_release_files
+        backref: annotation_file
+        label: data_from
+        target_type: data_release
+        multiplicity: many_to_many
+        required: false
 
 required:
   - type
@@ -61,10 +67,10 @@ uniqueKeys:
 
 properties:
   $ref: "_definitions.yaml#/data_file_properties"
-  
+
   type:
     type: string
-    
+
   data_category:
     term:
       $ref: "_terms.yaml#/data_category"
@@ -84,34 +90,34 @@ properties:
     description: >
       Information on the variant annotation process that were used to generate the VCF annotation.
     type: string
-  
+
   annotation_tool:
     description: >
       Information on the tools/softwares to generate the annotated VCF file.
     type: string
-  
+
   filter:
     description: >
-      Description of filters that have been applied to the variants. 
+      Description of filters that have been applied to the variants.
     type: string
-  
+
   reference:
     description: >
-      The reference genome used to generate the VCF file. 
+      The reference genome used to generate the VCF file.
     enum:
       - GRCh37
       - GRCh38
-  
+
   contig:
     description: >
-      A list of IDs for the contiguous DNA sequences that appear in the reference genome used to produce VCF files. 
+      A list of IDs for the contiguous DNA sequences that appear in the reference genome used to produce VCF files.
     type: string
 
   command:
     description: >
       Commands used by the annotation tool to generate the annotated VCF files.
     type: string
-  
+
   raw_snp_genotypes:
     $ref: "_definitions.yaml#/to_many"
 
@@ -119,4 +125,7 @@ properties:
     $ref: "_definitions.yaml#/to_many"
 
   core_metadata_collections:
+    $ref: "_definitions.yaml#/to_many"
+
+  data_release_files:
     $ref: "_definitions.yaml#/to_many"
