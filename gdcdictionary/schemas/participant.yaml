@@ -26,7 +26,7 @@ links:
     backref: participants
     label: recruited_at
     target_type: center
-    multiplicity: many_to_one
+    multiplicity: many_to_many
     required: true
 
 required:
@@ -113,7 +113,7 @@ properties:
     type: string     
     
   centers:
-    $ref: "_definitions.yaml#/to_one"
+    $ref: "_definitions.yaml#/to_many"
   project_id:
     $ref: "_definitions.yaml#/project_id"
   created_datetime:
