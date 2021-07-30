@@ -253,7 +253,7 @@ properties:
 
   prs_account:
     description: >
-      The account in the Protocol Registration and Results System that was used to register the clinical studu and to submit results information for the registered study.
+      The account in the Protocol Registration and Results System that was used to register the clinical study and to submit results information for the registered study.
     type: string
 
   verification_date:
