@@ -119,6 +119,11 @@ properties:
       A project can only be released by the user when `releasable` is true.
     default: false
     type: boolean
+    
+  data_available_for_request:
+    description: >
+      Whether users may request access to this data.
+    type: boolean
 
   intended_release_date:
     description: Tracks a Project's intended release date.
@@ -127,3 +132,167 @@ properties:
   dbgap_accession_number:
     type: string
     description: "The dbgap accession number provided for the project."
+    
+    
+
+############################
+# Added variables for project information on the study viewer page. Pulled from the CMC node of NIAID trials data dictionary.
+############################
+#Prop name from clinicaltrials.gov is official_title
+  title:
+    description: >
+      The title of the clinical study, corresponding to the title of the protocol.
+    type: string
+
+  brief_summary:
+    description: >
+      A short description of the clinical study, including a brief statement of the clinical study's hypothesis, written in language intended for the lay public.
+    type: string
+
+# Can be mapped to HL7 FHIR ResearchStudy.description. Prop name from clinicaltrials.gov is detailed_description.
+  description:
+    description: >
+      Extended description of the protocol, including more technical information, if desired. Do not include the entire protocol; do not duplicate information recorded in other data elements, such as Eligibility Criteria or outcome measures.
+    type: string
+
+  category:
+    description: >
+      The nature of the investigation or investigational use for which clinical study information is being submitted.
+    enum:
+      - "Interventional"
+      - "Observational"
+      - "Expanded Access"
+
+  study_phase:
+    description: >
+      For a clinical trial of a drug product (including a biological product), the numerical phase of such clinical trial, consistent with terminology in 21 CFR 312.21 and in 21 CFR 312.85 for phase 4 studies.
+    enum:
+      - "N/A"
+      - "early-phase-1"
+      - "phase-1"
+      - "phase-1-phase-2"
+      - "phase-2"
+      - "phase-2-phase-3"
+      - "phase-3"
+      - "phase-4"
+
+  study_design_allocation:
+    description: >
+      The method by which participants are assigned to arms in a clinical trial.
+    enum:
+      - "N/A"
+      - "Randomized"
+      - "Nonrandomized"
+
+  study_design_intervention_model:
+    description: >
+       The strategy for assigning interventions to participants.
+    enum:
+      - "Single Group"
+      - "Parallel"
+      - "Crossover"
+      - "Factorial"
+      - "Sequential"
+
+  study_design_masking:
+    description: >
+      The party or parties involved in the clinical trial who are prevented from having knowledge of the interventions assigned to individual participants.
+    enum:
+      - "Participant"
+      - "Care Provider"
+      - "Investigator"
+      - "Outcomes Assessor"
+      - "No Masking"
+
+  study_design_primary_purpose:
+    description: >
+      The main objective of the intervention(s) being evaluated by the clinical trial.
+    enum:
+      - "Treatment"
+      - "Prevention"
+      - "Diagnostic"
+      - "Supportive Care"
+      - "Screening"
+      - "Health Services"
+      - "Basic Science"
+      - "Device Feasibility"
+      - "Other"
+
+  intervention_type:
+    description: >
+      For each intervention studied in the clinical study, the general type of intervention.
+    enum:
+      - "Drug"
+      - "Device"
+      - "Biological/Vaccine"
+      - "Procedure/Surgery"
+      - "Radiation"
+      - "Behavioral"
+      - "Genetic"
+      - "Dietary Supplement"
+      - "Combination Product"
+      - "Diagnostic Test"
+      - "Other"
+
+# Required property for Gen3 Pidgin
+  creator:
+    description: >
+      An organization that initiates the investigation and is legally responsible for the study.
+    type: string
+
+  collaborators:
+    description: >
+      Other organizations (if any) providing support. Support may include funding, design, implementation, data analysis or reporting. The responsible party is responsible for confirming all collaborators before listing them.
+    type: string
+
+# HL7 FHIR definition
+  principle_investigator:
+    description: >
+      A researcher in a study who oversees multiple aspects of the study, such as concept development, protocol writing, protocol submission for IRB approval, participant recruitment, informed consent, data collection, analysis, interpretation and presentation.
+    type: string
+
+  prs_account:
+    description: >
+      The account in the Protocol Registration and Results System that was used to register the clinical study and to submit results information for the registered study.
+    type: string
+
+  verification_date:
+    description: >
+      The date on which the responsible party last verified the clinical study information in the entire ClinicalTrials.gov record for the clinical study, even if no additional or updated information is being submitted.
+    type: string
+
+  clinical_trial_website:
+    description: >
+      Any originating or affiliated website for the respective clinical trial.
+    type: string
+
+#Props needed for Pidgin
+  contributor:
+    description: >
+      An entity responsible for making contributions to the resource. Examples of a Contributor include a person, an organization, or a service. Typically, the name of a Contributor should be used to indicate the entity.
+    type: string
+
+  coverage:
+    description: >
+      The spatial or temporal topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant. Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended best practice is to use a controlled vocabulary such as the Thesaurus of Geographic Names [TGN] (http://www.getty.edu/research/tools/vocabulary/tgn/index.html). Where appropriate, named places or time periods can be used in preference to numeric identifiers such as sets of coordinates or date ranges.
+    type: string
+
+  language:
+    description: >
+      A language of the resource. Recommended best practice is to use a controlled vocabulary such as RFC 4646 (http://www.ietf.org/rfc/rfc4646.txt).
+    type: string
+
+  publisher:
+    description: >
+      An entity responsible for making the resource available. Examples of a Publisher include a person, an organization, or a service. Typically, the name of a Publisher should be used to indicate the entity.
+    type: string
+
+  rights:
+    description: >
+      Information about rights held in and over the resource. Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights.
+    type: string
+
+  source:
+    description: >
+      A related resource from which the described resource is derived. The described resource may be derived from the related resource in whole or in part. Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system.
+    type: string
