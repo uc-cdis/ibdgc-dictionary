@@ -60,11 +60,6 @@ properties:
       An entity primarily responsible for making the resource. Examples of a Creator include a person, an organization, or a service. Typically, the name of a Creator should be used to indicate the entity.
     type: string
 
-  data_available_for_request:
-    description: >
-      Whether users may request access to this data.
-    type: boolean
-
   date:
     $ref: "_definitions.yaml#/datetime"
 
