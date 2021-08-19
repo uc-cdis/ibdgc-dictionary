@@ -119,11 +119,6 @@ properties:
       A project can only be released by the user when `releasable` is true.
     default: false
     type: boolean
-    
-  data_available_for_request:
-    description: >
-      Whether users may request access to this data.
-    type: boolean
 
   intended_release_date:
     description: Tracks a Project's intended release date.
