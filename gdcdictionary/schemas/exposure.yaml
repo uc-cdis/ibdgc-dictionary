@@ -49,7 +49,7 @@ properties:
       - "Current smoker"
       - "Ex-smoker"
       - "Non-smoker"
-      - "Unknown"
+
 
   smoking_start:
     description: >
