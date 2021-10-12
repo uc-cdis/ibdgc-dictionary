@@ -43,13 +43,11 @@ properties:
       Smoking status at diagnosis/ascertainment (i.e., within the three months immediately prior)
     enum:
       - "Yes"
-      - "Ex-smoker"
       - "No"
       - "Unknown"
       - "Current smoker"
       - "Ex-smoker"
       - "Non-smoker"
-
 
   smoking_start:
     description: >
