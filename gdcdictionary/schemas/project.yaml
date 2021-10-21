@@ -124,6 +124,7 @@ properties:
     description: Tracks a Project's intended release date.
     type: string
     format: date-time
+    
   dbgap_accession_number:
     type: string
     description: "The dbgap accession number provided for the project."
@@ -148,6 +149,8 @@ properties:
     description: >
       The general classification of the approach used for the study, i.e. GSA, GDA, RNA-seq.
     type: array
+    items: 
+      type: string
 
   estimated_study_completion:
     description: >
