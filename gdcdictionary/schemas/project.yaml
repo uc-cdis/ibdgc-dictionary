@@ -144,6 +144,16 @@ properties:
       A short description of the clinical study, including a brief statement of the clinical study's hypothesis, written in language intended for the lay public.
     type: string
 
+  data_type:
+    description: >
+      The general classification of the approach used for the study, i.e. GSA, GDA, RNA-seq.
+    type: array
+
+  estimated_study_completion:
+    description: >
+      The estimated date that the study will be completed/published.
+    type: string
+
 # Can be mapped to HL7 FHIR ResearchStudy.description. Prop name from clinicaltrials.gov is detailed_description.
   description:
     description: >
